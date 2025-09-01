@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klyro Hub</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+  }
+
+  header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+  }
+
+  header h1 {
+    font-size: 2.8rem;
+    margin: 0 0 0.5rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .view-toggle button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    background: #2575fc;
+    color: white;
+  }
+
+  .view-toggle button.active {
+    background: #ff7f50;
+  }
+
+  /* Stack View */
+  .stack-container {
+    display: none;
+    position: relative;
+    width: 300px;
+    margin: 2rem auto;
+    height: 220px;
+  }
+
+  .stack-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity 0.4s ease, z-index 0.2s;
+  }
+
+  /* Grid View */
+  .grid-container {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0 2rem;
+  }
+
+  .filters input, .filters select {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .grid-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .grid-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  .grid-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .grid-card h3 {
+    margin: 0.5rem 0;
+    color: #2575fc;
+  }
+
+  .grid-card p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .admin-badge {
+    display: inline-block;
+    background: #ff7f50;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding: 1.5rem 1rem;
+    background: #222;
+    color: #ddd;
+    text-align: center;
+  }
+
+  footer nav a {
+    margin: 0 0.8rem;
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer nav a:hover {
+    color: #2575fc;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Klyro Hub</h1>
+  <p>Explore all platforms, tools, and communities in one place.</p>
+</header>
+
+<div class="view-toggle">
+  <button id="stackViewBtn" class="active">Stacked View</button>
+  <button id="gridViewBtn">Grid View</button>
+</div>
+
+<!-- Stack View -->
+<div class="stack-container" id="stackContainer">
+  <div class="stack-card">Demonstration Room</div>
+  <div class="stack-card">Pre-Training</div>
+  <div class="stack-card">Online Islamiyya</div>
+  <div class="stack-card">Cyberman Jet</div>
+</div>
+
+<!-- Grid View -->
+<div class="grid-container" id="gridContainer">
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="Search platforms...">
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <option value="learning">Learning</option>
+      <option value="religious">Religious</option>
+      <option value="utility">Utilities</option>
+    </select>
+  </div>
+  <div class="grid" id="grid">
+    <div class="grid-card" data-category="learning">
+      <img src="https://via.placeholder.com/300x150.png?text=Demonstration+Room" alt="">
+      <h3>Demonstration Room</h3>
+      <p>A hands-on learning platform for training and demonstrations.</p>
+      <span class="admin-badge">Admin</span>
+    </div>
+    <div class="grid-card" data-category="learning">
+      <img src="https://via.placeholder.com/300x150.png?text=Pre-Training" alt="">
+      <h3>Pre-Training</h3>
+      <p>Prepare and enhance your skills with curated courses.</p>
+    </div>
+    <div class="grid-card" data-category="religious">
+      <img src="https://via.placeholder.com/300x150.png?text=Online+Islamiyya" alt="">
+      <h3>Online Islamiyya</h3>
+      <p>Digital religious education and community tools.</p>
+    </div>
+    <div class="grid-card" data-category="utility">
+      <img src="https://via.placeholder.com/300x150.png?text=Cyberman+Jet" alt="">
+      <h3>Cyberman Jet</h3>
+      <p>Powerful utility platform for developers and tech enthusiasts.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Klyro Hub · All rights reserved</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ads.html">Promotions</a>
+    <a href="hub-combined.html">Hub</a>
+  </nav>
+</footer>
+
+<script>
+  const stackBtn = document.getElementById('stackViewBtn');
+  const gridBtn = document.getElementById('gridViewBtn');
+  const stackContainer = document.getElementById('stackContainer');
+  const gridContainer = document.getElementById('gridContainer');
+
+  // Initialize with stacked view visible
+  stackContainer.style.display = 'block';
+
+  stackBtn.addEventListener('click', () => {
+    stackContainer.style.display = 'block';
+    gridContainer.style.display = 'none';
+    stackBtn.classList.add('active');
+    gridBtn.classList.remove('active');
+  });
+
+  gridBtn.addEventListener('click', () => {
+    stackContainer.style.display = 'none';
+    gridContainer.style.display = 'block';
+    gridBtn.classList.add('active');
+    stackBtn.classList.remove('active');
+  });
+
+  // Stack card arrangement
+  function arrangeStack() {
+    const cards = stackContainer.querySelectorAll('.stack-card');
+    cards.forEach((card, i) => {
+      card.style.zIndex = cards.length - i;
+      card.style.transform = `translateY(${i * 20}px) scale(${1 - i*0.05})`;
+      card.style.opacity = `${1 - i*0.1}`;
+    });
+
+    cards.forEach(card => {
+      card.onclick = e => {
+        e.preventDefault();
+        stackContainer.appendChild(card);
+        arrangeStack();
+        setTimeout(() => {
+          alert(`Open "${card.textContent}" platform here!`);
+        }, 300);
+      };
+    });
+  }
+  arrangeStack();
+
+  // Grid search/filter
+  const searchInput = document.getElementById('searchInput');
+  const categoryFilter = document.getElementById('categoryFilter');
+  const gridCards = document.querySelectorAll('.grid-card');
+
+  function filterGrid() {
+    const searchText = searchInput.value.toLowerCase();
+    const category = categoryFilter.value;
+
+    gridCards.forEach(card => {
+      const name = card.querySelector('h3').textContent.toLowerCase();
+      const cardCategory = card.dataset.category;
+
+      const matchesSearch = name.includes(searchText);
+      const matchesCategory = category === 'all' || cardCategory === category;
+
+      card.style.display = (matchesSearch && matchesCategory) ? 'block' : 'none';
+    });
+  }
+
+  searchInput.addEventListener('input', filterGrid);
+  categoryFilter.addEventListener('change', filterGrid);
+
+  gridCards.forEach(card => {
+    card.addEventListener('click', () => {
+      alert(`Open "${card.querySelector('h3').textContent}" platform here!`);
+    });
+  });
+</script>
+</body>
+</html>
