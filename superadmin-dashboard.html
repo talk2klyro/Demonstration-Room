@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Superadmin Dashboard - Klyro Hub</title>
+<style>
+  body { margin:0; font-family:Arial,sans-serif; background:#f4f4f4; }
+  header { background:#2575fc; color:white; text-align:center; padding:2rem 1rem; }
+  header h1 { margin:0; font-size:2rem; }
+  header p { margin:0.5rem 0 0; font-size:1.1rem; }
+
+  nav { display:flex; justify-content:center; gap:1rem; margin-top:1rem; }
+  nav a { color:white; text-decoration:none; font-weight:bold; }
+  nav a:hover { text-decoration:underline; }
+
+  main { max-width:1200px; margin:2rem auto; padding:0 1rem; }
+
+  .form-container { background:white; padding:1.5rem; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.1); margin-bottom:2rem; }
+  .form-container input, .form-container select { padding:0.5rem 0.8rem; margin:0.5rem 0; width:100%; border-radius:6px; border:1px solid #ccc; font-size:1rem; }
+  .form-container button { padding:0.5rem 1rem; margin-top:0.5rem; border:none; border-radius:8px; background:#2575fc; color:white; font-weight:bold; cursor:pointer; }
+  .form-container button:hover { background:#1a5ccc; }
+
+  table { width:100%; border-collapse:collapse; margin-top:1rem; }
+  table th, table td { padding:0.8rem; border-bottom:1px solid #ddd; text-align:left; }
+  table th { background:#2575fc; color:white; }
+  .actions button { padding:0.3rem 0.6rem; margin-right:0.3rem; border:none; border-radius:4px; cursor:pointer; }
+  .edit-btn { background:#ff7f50; color:white; }
+  .delete-btn { background:#ff4d4d; color:white; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Superadmin Dashboard</h1>
+  <p>Manage all platforms, categories, and featured status.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="ads.html">Promotions</a>
+    <a href="hub-combined.html">Hub</a>
+  </nav>
+</header>
+
+<main>
+  <div class="form-container">
+    <h2>Add New Platform</h2>
+    <input type="text" id="platformName" placeholder="Platform Name">
+    <input type="text" id="platformDesc" placeholder="Description">
+    <input type="text" id="platformImg" placeholder="Image URL (optional)">
+    <select id="platformCategory">
+      <option value="learning">Learning</option>
+      <option value="religious">Religious</option>
+      <option value="utility">Utilities</option>
+    </select>
+    <label>
+      <input type="checkbox" id="platformFeatured"> Mark as Featured (for Ads)
+    </label>
+    <button id="addPlatformBtn">Add Platform</button>
+  </div>
+
+  <h2>Existing Platforms</h2>
+  <table id="platformTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Featured</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</main>
+
+<script>
+  const addBtn = document.getElementById('addPlatformBtn');
+  const platformName = document.getElementById('platformName');
+  const platformDesc = document.getElementById('platformDesc');
+  const platformImg = document.getElementById('platformImg');
+  const platformCategory = document.getElementById('platformCategory');
+  const platformFeatured = document.getElementById('platformFeatured');
+  const tableBody = document.querySelector('#platformTable tbody');
+
+  function loadPlatforms(){
+    const platforms = JSON.parse(localStorage.getItem('platforms')) || [];
+    tableBody.innerHTML = '';
+    platforms.forEach((p, index)=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${p.name}</td>
+        <td>${p.desc}</td>
+        <td>${p.category}</td>
+        <td>${p.isAdmin ? 'Yes' : 'No'}</td>
+        <td class="actions">
+          <button class="edit-btn" onclick="editPlatform(${index})">Edit</button>
+          <button class="delete-btn" onclick="deletePlatform(${index})">Delete</button>
+        </td>
+      `;
+      tableBody.appendChild(tr);
+    });
+  }
+
+  addBtn.addEventListener('click', ()=>{
+    const platforms = JSON.parse(localStorage.getItem('platforms')) || [];
+    if(!platformName.value || !platformDesc.value) return alert('Name and description are required.');
+
+    platforms.push({
+      name: platformName.value,
+      desc: platformDesc.value,
+      img: platformImg.value,
+      category: platformCategory.value,
+      isAdmin: platformFeatured.checked
+    });
+
+    localStorage.setItem('platforms', JSON.stringify(platforms));
+    platformName.value=''; platformDesc.value=''; platformImg.value=''; platformCategory.value='learning'; platformFeatured.checked=false;
+    loadPlatforms();
+  });
+
+  window.editPlatform = function(index){
+    const platforms = JSON.parse(localStorage.getItem('platforms')) || [];
+    const p = platforms[index];
+    const newName = prompt("Edit Platform Name:", p.name);
+    if(newName) p.name = newName;
+    const newDesc = prompt("Edit Description:", p.desc);
+    if(newDesc) p.desc = newDesc;
+    const newCategory = prompt("Edit Category (learning/religious/utility):", p.category);
+    if(newCategory) p.category = newCategory;
+    const newFeatured = confirm("Mark as Featured for Ads?");
+    p.isAdmin = newFeatured;
+    localStorage.setItem('platforms', JSON.stringify(platforms));
+    loadPlatforms();
+  }
+
+  window.deletePlatform = function(index){
+    if(confirm("Delete this platform?")){
+      const platforms = JSON.parse(localStorage.getItem('platforms')) || [];
+      platforms.splice(index,1);
+      localStorage.setItem('platforms', JSON.stringify(platforms));
+      loadPlatforms();
+    }
+  }
+
+  loadPlatforms();
+</script>
+
+</body>
+</html>
