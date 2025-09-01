@@ -1,0 +1,132 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promotions & Ads</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+    }
+
+    .ads-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .ad-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .ad-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .ad-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .ad-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.3rem;
+      color: #2575fc;
+    }
+
+    .ad-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.5rem 1rem;
+      background: #222;
+      color: #ddd;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    footer nav {
+      margin-top: 0.5rem;
+    }
+
+    footer nav a {
+      margin: 0 0.8rem;
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer nav a:hover {
+      color: #2575fc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Promotions & Ads</h1>
+    <p>Special offers, banners, and partner promotions</p>
+  </header>
+
+  <section class="ads-container">
+    <div class="ad-card">
+      <img src="https://via.placeholder.com/400x200.png?text=Ad+Banner+1" alt="Ad 1">
+      <h3>Special Discount</h3>
+      <p>Get 30% off our new SaaS platform this month only!</p>
+    </div>
+    <div class="ad-card">
+      <img src="https://via.placeholder.com/400x200.png?text=Ad+Banner+2" alt="Ad 2">
+      <h3>Partner Promotion</h3>
+      <p>Check out our partner’s amazing new tool for developers.</p>
+    </div>
+    <div class="ad-card">
+      <img src="https://via.placeholder.com/400x200.png?text=Ad+Banner+3" alt="Ad 3">
+      <h3>Upcoming Event</h3>
+      <p>Join our free webinar on scaling SaaS apps. Reserve your spot now!</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 My Project Showcase · All rights reserved</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="ads.html">Promotions</a>
+    </nav>
+  </footer>
+</body>
+</html>
