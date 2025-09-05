@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AI Text Formatter Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Text Formatter Portal</h1>
+    <div class="pane">
+      <textarea id="editor" placeholder="Paste your AI-generated text here..."></textarea>
+      <div class="controls">
+        <input id="filename" placeholder="filename (without ext)" />
+        <button id="formatBtn">Format Preview</button>
+        <button id="pdfBtn">Export PDF</button>
+        <button id="epubBtn">Export ePub</button>
+        <button id="docxBtn">Export DOCX</button>
+      </div>
+    </div>
+    <div class="preview">
+      <h2>Preview</h2>
+      <div id="previewArea"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
