@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Storvia Store</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="storvia-header">
+    <div class="logo">Storvia<span>Marketplace</span></div>
+    <nav>
+      <a href="stores.html">Stores</a>
+      <a href="cart.html">Cart 🛒 <span id="cartCount">0</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 id="storeName"></h1>
+    <div id="storeBanner"></div>
+    <div id="filters">
+      <input type="search" id="searchBox" placeholder="Search products...">
+      <select id="priceFilter">
+        <option value="all">All prices</option>
+        <option value="low">Below $100</option>
+        <option value="mid">$100 - $500</option>
+        <option value="high">Above $500</option>
+      </select>
+    </div>
+    <section id="productsGrid"></section>
+  </main>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/store.js"></script>
+</body>
+</html>
