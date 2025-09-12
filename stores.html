@@ -3,22 +3,118 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Storvia — Explore Stores</title>
+  <title>Stores - Storvia Marketplace</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #F4F4F7;
+      color: #2E2E2E;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #2E2E2E;
+      color: white;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .logo span {
+      color: #DAA520;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #DAA520;
+    }
+    h1 {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .store-card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .store-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .store-card img.store-logo {
+      max-width: 100px;
+      margin-bottom: 15px;
+    }
+    .store-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .store-card p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .store-card button {
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: none;
+      background: #DAA520;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .store-card button:hover {
+      background: #c5941f;
+      transform: translateY(-3px);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2E2E2E;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <header class="storvia-header">
+  <header>
     <div class="logo">Storvia<span>Marketplace</span></div>
     <nav>
-      <a href="stores.html">Stores</a>
+      <a href="index.html">Home</a>
       <a href="cart.html">Cart 🛒 <span id="cartCount">0</span></a>
     </nav>
   </header>
 
-  <main>
-    <h1>Explore Our Stores</h1>
-    <section id="storesList"></section>
-  </main>
+  <h1>Explore Our Stores</h1>
+
+  <main id="storeList" class="store-grid"></main>
+
+  <footer>
+    © 2025 Storvia Marketplace — The way to stores.
+  </footer>
 
   <script src="assets/js/common.js"></script>
   <script src="assets/js/stores.js"></script>
