@@ -1,4 +1,4 @@
-<!<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -6,82 +6,145 @@
   <title>Storvia Marketplace</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* ===== Landing Page Styling ===== */
+    /* ===== Premium Landing Page Styling ===== */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #F4F4F7;
+      color: #2E2E2E;
+    }
+
     .hero {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 90vh;
       text-align: center;
-      background: linear-gradient(135deg, #F4F4F7, #fff, #DAA52022);
+      background: radial-gradient(circle at top, #fff, #F4F4F7, #e6e6e6);
       padding: 40px 20px;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-family: 'Poppins', sans-serif;
+      font-weight: 700;
       color: #2E2E2E;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      color: #DAA520;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      color: #555;
-      max-width: 600px;
-      margin: 0 auto 25px auto;
+      font-size: 1.25rem;
+      color: #444;
+      max-width: 700px;
+      margin-bottom: 35px;
+      line-height: 1.6;
     }
 
-    .hero .cta-btn {
+    .cta-btn {
       font-size: 1.2rem;
-      padding: 14px 28px;
+      padding: 14px 32px;
       border-radius: 8px;
       background: #DAA520;
       color: white;
       font-weight: 600;
       border: none;
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(218,165,32,0.3);
     }
 
-    .hero .cta-btn:hover {
+    .cta-btn:hover {
       background: #c5941f;
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
 
     .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 60px 40px;
+      background: #fff;
     }
 
     .feature-card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      padding: 25px;
-      width: 280px;
+      background: #F4F4F7;
+      border-radius: 16px;
+      padding: 30px;
       text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
 
     .feature-card h3 {
       color: #2E2E2E;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
     }
 
     .feature-card p {
       color: #555;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* ===== About Storvia ===== */
+    .about {
+      padding: 80px 40px;
+      background: linear-gradient(135deg, #F4F4F7, #fff);
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2.2rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 20px;
+      color: #2E2E2E;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .trust-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .trust-logos div {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #DAA520;
+      border: 2px solid #DAA520;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       background: #2E2E2E;
       color: white;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
@@ -95,23 +158,40 @@
   </header>
 
   <section class="hero">
-    <h1>Welcome to Storvia Marketplace</h1>
-    <p>The way to stores — discover a world of products, merchants, and experiences all in one place.</p>
-    <button class="cta-btn" onclick="window.location.href='stores.html'">Explore Stores</button>
+    <h1><span>Storvia</span> Marketplace</h1>
+    <p>The premium way to stores — elegant, modern, and built for a world-class shopping experience.</p>
+    <button class="cta-btn" onclick="window.location.href='stores.html'">Start Exploring</button>
   </section>
 
   <section class="features">
     <div class="feature-card">
-      <h3>🛍️ Diverse Stores</h3>
-      <p>Browse multiple unique stores under one giant marketplace.</p>
+      <h3>🌍 Global Reach</h3>
+      <p>Access multiple stores and brands worldwide, all through Storvia’s unified platform.</p>
     </div>
     <div class="feature-card">
-      <h3>⚡ Smooth Shopping</h3>
-      <p>Search, filter, and shop with a modern UI built for speed.</p>
+      <h3>⚡ Seamless Experience</h3>
+      <p>Modern UI, golden-silver branding, and lightning-fast navigation for effortless shopping.</p>
     </div>
     <div class="feature-card">
-      <h3>💳 Easy Checkout</h3>
-      <p>Your cart and checkout system are seamless and secure.</p>
+      <h3>💎 Premium Quality</h3>
+      <p>From luxury to essentials — only the finest selection of stores and products.</p>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About Storvia</h2>
+    <p>
+      Storvia Marketplace is more than a storefront. We are building a digital gateway
+      where global merchants and customers meet with trust, elegance, and ease.
+      With our premium silver-gold identity, we bring luxury, convenience, and
+      accessibility into one seamless shopping journey.
+    </p>
+
+    <div class="trust-logos">
+      <div>Trusted by Sellers</div>
+      <div>Secured Checkout</div>
+      <div>Global Reach</div>
+      <div>Premium Support</div>
     </div>
   </section>
 
@@ -121,4 +201,4 @@
 
   <script src="assets/js/common.js"></script>
 </body>
-</html>
+    </html>
