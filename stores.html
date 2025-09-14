@@ -1,78 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Storvia Stores</title>
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-body { font-family: Arial, sans-serif; background:#f9f9f9; margin:0; }
-h2 { margin-left:20px; color:#DAA520; font-size:1.8rem; }
-.stores-section { margin:40px 20px; }
-.stores-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
-.store-card {
-  background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  padding:15px; text-align:center; transition: transform 0.3s, box-shadow 0.3s; cursor:pointer;
-}
-.store-card:hover {
-  transform: scale(1.05);
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-.store-card img { width:100%; max-height:100px; object-fit:contain; margin-bottom:10px; }
-.store-card a { text-decoration:none; color:#DAA520; font-weight:bold; display:block; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storvia - Stores</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<section class="stores-section">
-  <h2>🏬 Internal Stores</h2>
-  <div class="stores-grid" id="internalStoresGrid"></div>
-</section>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Storvia</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stores.html" class="active">Stores</a>
+      <a href="promo.html">Promotions</a>
+      <a href="journey.html">Journey</a>
+    </nav>
+  </header>
 
-<section class="stores-section">
-  <h2>🌟 External Stores</h2>
-  <div class="stores-grid" id="externalStoresGrid"></div>
-</section>
+  <!-- Stores List -->
+  <main class="stores-section">
+    <h1>All Stores</h1>
 
-<script>
-async function loadStores() {
-  // Internal Stores
-  const internalRes = await fetch('assets/data/stores.json');
-  const internalStores = await internalRes.json();
-  const internalGrid = document.getElementById('internalStoresGrid');
-  internalStores.forEach(store=>{
-    if(store.type==='internal'){
-      const card = document.createElement('div');
-      card.className='store-card';
-      card.innerHTML=`
-        <a href="store.html?id=${store.id}">
-          <img src="assets/images/stores/${store.logo}" alt="${store.name}">
-          <div>${store.name}</div>
-        </a>
-      `;
-      internalGrid.appendChild(card);
-    }
-  });
+    <!-- Internal Stores -->
+    <section id="internal-stores">
+      <h2>Internal Stores</h2>
+      <div id="internalStoresContainer" class="stores-grid"></div>
+    </section>
 
-  // External Stores
-  const externalRes = await fetch('assets/data/externalStores.json');
-  const externalStores = await externalRes.json();
-  const externalGrid = document.getElementById('externalStoresGrid');
-  externalStores.forEach(store=>{
-    const card = document.createElement('div');
-    card.className='store-card';
-    card.innerHTML=`
-      <a href="${store.url}" target="_blank">
-        <img src="${store.logo}" alt="${store.name}">
-        <div>${store.name}</div>
-      </a>
-    `;
-    externalGrid.appendChild(card);
-  });
-}
+    <!-- External Stores -->
+    <section id="external-stores">
+      <h2>External Stores / Members</h2>
+      <div id="externalStoresContainer" class="stores-grid"></div>
+    </section>
+  </main>
 
-loadStores();
-</script>
+  <!-- Snackbar -->
+  <div id="snackbar"></div>
 
+  <!-- Scripts -->
+  <script type="module" src="js/stores.js"></script>
 </body>
 </html>
