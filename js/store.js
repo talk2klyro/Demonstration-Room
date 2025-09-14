@@ -1,45 +1,64 @@
-// Get s// Get store id from URL
-const urlParams = new URLSearchParams(window.location.search);
-const storeId = urlParams.get('id');
+// store.js
+import { showSnackbar, createCard } from './utils.js';
 
-// Fetch store data
-fetch('assets/data/store.json')
-  .then(res => res.json())
-  .then(data => {
-    const store = data.stores.find(s => s.id === storeId);
+// DOM Containers
+const storeDetailsContainer = document.getElementById('storeDetails');
+const productsContainer = document.getElementById('productsContainer');
+
+// Get store ID from URL query
+function getStoreId() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('id');
+}
+
+// Render store details
+function renderStoreDetails(store) {
+  storeDetailsContainer.innerHTML = `
+    <div class="store-card">
+      <img src="${store.image}" alt="${store.name}" class="store-logo">
+      <h2>${store.name}</h2>
+      <p>${store.description}</p>
+      <div class="store-contact">
+        ${store.contact ? `<p>Contact: ${store.contact}</p>` : ''}
+        ${store.location ? `<p>Location: ${store.location}</p>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// Render store products
+function renderProducts(products) {
+  productsContainer.innerHTML = '';
+  products.forEach(product => {
+    const card = createCard(product.name, product.image, product.cta || '#');
+    productsContainer.appendChild(card);
+  });
+}
+
+// Initialize store page
+async function initStorePage() {
+  const storeId = getStoreId();
+  if (!storeId) {
+    showSnackbar('No store ID specified!');
+    return;
+  }
+
+  try {
+    const res = await fetch('data/stores.json');
+    const stores = await res.json();
+    const store = stores.find(s => s.id.toString() === storeId);
 
     if (!store) {
-      document.body.innerHTML = `<h2>Store not found</h2>`;
+      showSnackbar('Store not found!');
       return;
     }
 
-    // Store Header
-    document.getElementById('storeBanner').src = store.banner;
-    document.getElementById('storeName').textContent = store.name;
-    document.getElementById('storeDescription').textContent = store.description;
-
-    // Products
-    const productList = document.getElementById('productList');
-    productList.innerHTML = '';
-
-    store.products.forEach(product => {
-      const card = document.createElement('div');
-      card.className = 'product-card';
-      card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <h4>${product.name}</h4>
-        <p>$${product.price}</p>
-        <button onclick="addToCart('${product.id}', '${product.name}', ${product.price})">Add to Cart</button>
-      `;
-      productList.appendChild(card);
-    });
-  })
-  .catch(err => console.error("Error loading store:", err));
-
-// Simple cart function (shared via common.js later)
-function addToCart(id, name, price) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cart.push({ id, name, price });
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert(`${name} added to cart!`);
+    renderStoreDetails(store);
+    renderProducts(store.products || []);
+  } catch (error) {
+    console.error('Error loading store:', error);
+  }
 }
+
+// Initialize on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initStorePage);
