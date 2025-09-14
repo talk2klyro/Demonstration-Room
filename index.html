@@ -1,107 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Storvia - Home</title>
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; }
-header { background:#DAA520; color:white; padding:30px; text-align:center; }
-h2 { margin-left:20px; color:#DAA520; font-size:2rem; }
-
-.carousel-container {
-  display:flex; overflow-x:auto; gap:20px; padding:20px; perspective:1000px;
-  scroll-behavior:smooth;
-}
-.carousel-card {
-  flex:0 0 200px; background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  text-align:center; padding:15px; transition: transform 0.5s, box-shadow 0.5s;
-  transform-style: preserve-3d;
-}
-.carousel-card img { width:100%; max-height:100px; object-fit:contain; margin-bottom:10px; }
-.carousel-card a { text-decoration:none; color:#DAA520; font-weight:bold; display:block; }
-.carousel-card:hover { transform: rotateY(0deg) scale(1.1); box-shadow:0 8px 20px rgba(0,0,0,0.3); cursor:pointer; }
-
-.featured-section { padding:40px 20px; }
-.featured-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
-.featured-card {
-  background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  padding:15px; text-align:center; transition: transform 0.3s, box-shadow 0.3s;
-}
-.featured-card img { width:100%; border-radius:8px; }
-.featured-card:hover { transform: scale(1.05); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storvia Multi-Storefront</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-  <h1>Welcome to Storvia</h1>
-  <p>Your gateway to premium internal and external stores</p>
-</header>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Storvia</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stores.html">Stores</a>
+      <a href="promo.html">Promotions</a>
+      <a href="journey.html">Journey</a>
+    </nav>
+  </header>
 
-<!-- Featured Promos (Optional) -->
-<section class="featured-section" id="featuredPromos">
-  <h2>🔥 Featured Promos</h2>
-  <div class="featured-grid" id="featuredGrid"></div>
-</section>
+  <!-- Featured Stores / 3D Coverflow -->
+  <section id="featured-stores" class="coverflow-section">
+    <h2>Featured Stores</h2>
+    <div id="coverflowGallery" class="coverflow-gallery"></div>
+  </section>
 
-<!-- 3D Coverflow: External Members -->
-<section id="featuredExternalStores">
-  <h2 style="text-align:center;">🌟 Storvia Members</h2>
-  <div class="carousel-container" id="externalStoresCarousel"></div>
-</section>
+  <!-- Current Promotions -->
+  <section id="current-promos">
+    <h2>Current Promotions</h2>
+    <div id="promoGallery" class="promo-gallery"></div>
+  </section>
 
-<script>
-// ---------- Featured Promos ----------
-const promos = [
-  // Example data, can be dynamic from promos.json
-  { name:"Promo 1", img:"assets/images/products/promo1.jpg" },
-  { name:"Promo 2", img:"assets/images/products/promo2.jpg" },
-  { name:"Promo 3", img:"assets/images/products/promo3.jpg" }
-];
-const featuredGrid = document.getElementById('featuredGrid');
-promos.forEach(promo=>{
-  const card = document.createElement('div');
-  card.className='featured-card';
-  card.innerHTML=`<img src="${promo.img}" alt="${promo.name}"><h3>${promo.name}</h3>`;
-  featuredGrid.appendChild(card);
-});
+  <!-- Newsletter / CTA -->
+  <section class="cta-section">
+    <h2>Stay Updated!</h2>
+    <p>Subscribe to get the latest store updates and promotions.</p>
+    <input type="email" placeholder="Enter your email">
+    <button id="subscribeBtn">Subscribe</button>
+  </section>
 
-// ---------- 3D Coverflow: External Members ----------
-const externalMembers = [
-  { name: "Zainabs Henna", url: "https://zainabs-henna.vercel.app", logo: "assets/images/members/zainabs-henna.png" },
-  { name: "Pre-Training", url: "https://pre-training.vercel.app", logo: "assets/images/members/pre-training.png" },
-  { name: "Dheeja Store", url: "https://dheeja-store.vercel.app", logo: "assets/images/members/dheeja-store.png" },
-  { name: "Readify Rust", url: "https://readify-rust.vercel.app/", logo: "assets/images/members/readify-rust.png" },
-  { name: "Alhaji Mohammed", url: "https://alhaji-mohammed.vercel.app", logo: "assets/images/members/alhaji-mohammed.png" },
-  { name: "Demonstration Room", url: "https://demonstration-room.vercel.app", logo: "assets/images/members/demonstration-room.png" }
-];
-const carouselContainer = document.getElementById('externalStoresCarousel');
-externalMembers.forEach(member=>{
-  const card = document.createElement('div');
-  card.className='carousel-card';
-  card.innerHTML=`
-    <a href="${member.url}" target="_blank">
-      <img src="${member.logo}" alt="${member.name}">
-      <div>${member.name}</div>
-    </a>
-  `;
-  carouselContainer.appendChild(card);
-});
+  <!-- Snackbar -->
+  <div id="snackbar"></div>
 
-// Optional: Simple 3D rotation effect on scroll
-carouselContainer.addEventListener('scroll', ()=>{
-  const cards = document.querySelectorAll('.carousel-card');
-  const center = carouselContainer.scrollLeft + carouselContainer.offsetWidth / 2;
-  cards.forEach(card=>{
-    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-    const diff = center - cardCenter;
-    const rotateY = diff / 20; // rotation effect
-    card.style.transform = `rotateY(${rotateY}deg) scale(1)`;
-  });
-});
-</script>
-
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
 </body>
+</html></body>
 </html>
