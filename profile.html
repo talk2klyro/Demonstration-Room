@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Circle ⭕ – Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/gsap.min.js"></script>
+</head>
+<body>
+  <header class="top-nav">
+    <input type="text" placeholder="Search..."/>
+    <div class="icons">
+      <span class="notification">🔔</span>
+      <span class="profile">👤</span>
+    </div>
+  </header>
+
+  <main class="profile-card">
+    <img src="https://i.pravatar.cc/100" alt="Profile" class="profile-img">
+    <h3 class="profile-name">Jane Doe</h3>
+    <p class="profile-role">Computer Science Student</p>
+    <button class="follow-btn">Follow</button>
+  </main>
+
+  <div id="snackbar"></div>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn">Home</button>
+    <button class="nav-btn">Circles</button>
+    <button class="nav-btn">Marketplace</button>
+    <button class="nav-btn">Academics</button>
+    <button class="nav-btn active">Profile</button>
+  </nav>
+
+  <script src="js/helpers.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
