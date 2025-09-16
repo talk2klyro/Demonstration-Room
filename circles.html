@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Circle ⭕ – Circles</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/gsap.min.js"></script>
-  <script src="js/hammer.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circle ⭕ - Circles</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
-  <header class="top-nav">
-    <input type="text" placeholder="Search..."/>
-    <div class="icons">
-      <span class="notification">🔔</span>
-      <span class="profile">👤</span>
-    </div>
-  </header>
 
-  <main class="circles-module">
+<header class="top-nav">
+  <input type="text" placeholder="Search...">
+  <div class="icons">
+    <span class="notification">🔔</span>
+    <span class="profile">👤</span>
+  </div>
+</header>
+
+<div id="snackbar"></div>
+
+<main class="main-content">
+  <section class="circles-module" id="circlesModule">
     <div class="circle-banner">
-      <h3>Loading Circle...</h3>
+      <h3>CSC 300L Study Group</h3>
       <button class="join-btn">Join</button>
     </div>
 
@@ -29,34 +34,35 @@
       <button class="tab-btn" data-tab="members">Members</button>
     </div>
 
-    <div class="tab-content" id="posts"></div>
-    <div class="tab-content" id="files" style="display:none;"></div>
-    <div class="tab-content" id="events" style="display:none;"></div>
-    <div class="tab-content" id="members" style="display:none;"></div>
+    <div class="tab-content" id="posts">
+      <div class="post-card">Exam prep session tomorrow at 5 PM. <button>Reply</button></div>
+    </div>
+    <div class="tab-content" id="files" style="display:none;">No files uploaded yet.</div>
+    <div class="tab-content" id="events" style="display:none;">No events scheduled.</div>
+    <div class="tab-content" id="members" style="display:none;">John Doe, Jane Smith</div>
 
     <button class="fab">+ Post</button>
-  </main>
 
-  <div id="uploadModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3>Upload File</h3>
-      <input type="file" id="fileInput" />
-      <button id="uploadBtn">Upload</button>
+    <!-- File Upload Modal -->
+    <div id="uploadModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Upload File</h3>
+        <input type="file" id="fileInput" />
+        <button id="uploadBtn">Upload</button>
+      </div>
     </div>
-  </div>
+  </section>
+</main>
 
-  <div id="snackbar"></div>
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-btn">⭕ Home</a>
+  <a href="circles.html" class="nav-btn active">Circles</a>
+  <a href="marketplace.html" class="nav-btn">Marketplace</a>
+  <a href="academics.html" class="nav-btn">Academics</a>
+  <a href="profile.html" class="nav-btn">Profile</a>
+</nav>
 
-  <nav class="bottom-nav">
-    <button class="nav-btn">Home</button>
-    <button class="nav-btn active">Circles</button>
-    <button class="nav-btn">Marketplace</button>
-    <button class="nav-btn">Academics</button>
-    <button class="nav-btn">Profile</button>
-  </nav>
-
-  <script src="js/helpers.js"></script>
-  <script src="js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
-  </html>
+</html>
