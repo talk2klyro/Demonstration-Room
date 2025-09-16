@@ -13,39 +13,52 @@
       "image": "https://i.postimg.cc/bw4zjjmh/03533a2ae0c28308d159919108dd9492.jpg"
     },
     {
-      "type": "announcement",
-      "title": "New Cafeteria Menu",
-      "content": "Healthy meals and discounts now available!",
+      "type": "opportunity",
+      "title": "Internship Alert",
+      "content": "Apply now for 2025 Google Summer of Code.",
       "image": "https://i.postimg.cc/MKWHsxF3/06c18964f037c762c7bb37772681b258.jpg"
-    },
-    {
-      "type": "trending",
-      "title": "Hackathon Prep Tips",
-      "content": "Get ready for Hackathon 2025 with these insights.",
-      "image": "https://i.postimg.cc/B6BsDP4S/09b344a7314bead03ed77da586cda314.jpg"
     }
   ],
   "circles": [
     {
       "name": "CSC 300L Study Group",
-      "members": [
-        {"name": "John Doe", "avatar": "https://i.postimg.cc/9QQ4fVPw/0a3ccabd5c61ba948d82a2a3c40fa812.jpg"},
-        {"name": "Jane Smith", "avatar": "https://i.postimg.cc/qM0h92zL/1864bd48518105c06d580dae07233cab.jpg"},
-        {"name": "Alice Johnson", "avatar": "https://i.postimg.cc/BQQZTpjd/19672a289fb403572b49e3ecdf8b2ff3.jpg"}
-      ],
+      "banner": "https://i.postimg.cc/B6BsDP4S/09b344a7314bead03ed77da586cda314.jpg",
+      "members": ["John Doe", "Jane Smith", "Alice Johnson"],
       "posts": [
         {
+          "author": "John Doe",
           "content": "Exam prep session tomorrow at 5 PM.",
-          "attachments": ["https://i.postimg.cc/HWb8Z6sn/19a4e099220ec71c98ac2e16e182000d.jpg"]
+          "image": "https://i.postimg.cc/9QQ4fVPw/0a3ccabd5c61ba948d82a2a3c40fa812.jpg"
         }
       ],
       "files": [
-        {"title": "CSC 300L Lecture Notes", "link": "#", "image": "https://i.postimg.cc/brPrfjNJ/1a06a07d95d687677e1f49415ffb849c.jpg"}
+        {
+          "name": "CSC 300L Notes.pdf",
+          "link": "#"
+        }
       ],
       "events": [
-        {"title": "Group Study Session", "date": "2025-09-12", "location": "Library Room 3"}
+        {
+          "title": "Group Mock Exam",
+          "date": "2025-09-20",
+          "location": "Classroom B",
+          "image": "https://i.postimg.cc/qM0h92zL/1864bd48518105c06d580dae07233cab.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Entrepreneurship Circle",
+      "banner": "https://i.postimg.cc/BQQZTpjd/19672a289fb403572b49e3ecdf8b2ff3.jpg",
+      "members": ["Fatima Ali", "Ahmed Musa"],
+      "posts": [
+        {
+          "author": "Fatima Ali",
+          "content": "Pitch competition this Friday!",
+          "image": "https://i.postimg.cc/HWb8Z6sn/19a4e099220ec71c98ac2e16e182000d.jpg"
+        }
       ],
-      "banner": "https://i.postimg.cc/7h1C5ZQ0/1a6ac39227e60d196d2215064b45b04a.jpg"
+      "files": [],
+      "events": []
     }
   ],
   "marketplace": [
@@ -53,53 +66,62 @@
       "name": "John’s Tutoring",
       "category": "services",
       "description": "CSC 300L Exam Prep - $5/hr",
-      "image": "https://i.postimg.cc/W3vThwRY/2036bb87e3cbcf9830810402c3babdc9.jpg"
+      "image": "https://i.postimg.cc/brPrfjNJ/1a06a07d95d687677e1f49415ffb849c.jpg"
     },
     {
       "name": "Campus Cafeteria",
       "category": "food",
       "description": "New meal plans now available!",
-      "image": "https://i.postimg.cc/6qzWs2mj/4bbe96966279c29a8ac100a707482f14.jpg"
+      "image": "https://i.postimg.cc/7h1C5ZQ0/1a6ac39227e60d196d2215064b45b04a.jpg"
     },
     {
-      "name": "YSU Merch Store",
-      "category": "fashion",
-      "description": "Get your YSU hoodies and tees.",
-      "image": "https://i.postimg.cc/VN5bK1dP/50f405372b6cd54d7877043f4a4fd131.jpg"
+      "name": "YSU Merchandise",
+      "category": "shop",
+      "description": "Get your hoodies and branded T-shirts.",
+      "image": "https://i.postimg.cc/W3vThwRY/2036bb87e3cbcf9830810402c3babdc9.jpg"
     }
   ],
-  "academics": [
-    {
-      "type": "pastQuestions",
-      "title": "CSC 200L Past Questions",
-      "link": "#",
-      "image": "https://i.postimg.cc/KYLmGsWg/531fb99368a4b8d098194e75cd392865.jpg"
-    },
-    {
-      "type": "notes",
-      "title": "Mathematics Notes",
-      "link": "#",
-      "image": "https://i.postimg.cc/pd7577Fh/589e8449ead54491bccecffc4264d450.jpg"
-    },
-    {
-      "type": "tutors",
-      "title": "Jane Doe - Math Tutor",
-      "link": "#",
-      "image": "https://i.postimg.cc/RZWM80Qd/5b5616256ec65a525509e876ddf30c8b.jpg"
-    }
-  ],
+  "academics": {
+    "pastQuestions": [
+      {
+        "title": "CSC 200L Past Questions",
+        "link": "#",
+        "image": "https://i.postimg.cc/6qzWs2mj/4bbe96966279c29a8ac100a707482f14.jpg"
+      }
+    ],
+    "notes": [
+      {
+        "title": "Mathematics Notes",
+        "link": "#",
+        "image": "https://i.postimg.cc/VN5bK1dP/50f405372b6cd54d7877043f4a4fd131.jpg"
+      }
+    ],
+    "tutors": [
+      {
+        "title": "Jane Doe - Math Tutor",
+        "link": "#",
+        "image": "https://i.postimg.cc/KYLmGsWg/531fb99368a4b8d098194e75cd392865.jpg"
+      }
+    ]
+  },
   "events": [
     {
       "title": "Faculty Dinner",
       "date": "2025-09-10",
       "location": "Campus Dining Hall",
-      "image": "https://i.postimg.cc/zBCDjPS1/607b2866059d0f666de4f99df0b5f61e.jpg"
+      "image": "https://i.postimg.cc/pd7577Fh/589e8449ead54491bccecffc4264d450.jpg"
     },
     {
       "title": "Hackathon 2025",
       "date": "2025-09-15",
       "location": "Tech Lab",
-      "image": "https://i.postimg.cc/gJ8j70pQ/649211af196237d19c4925793b30aa88.jpg"
+      "image": "https://i.postimg.cc/RZWM80Qd/5b5616256ec65a525509e876ddf30c8b.jpg"
+    },
+    {
+      "title": "Cultural Day",
+      "date": "2025-09-25",
+      "location": "Main Auditorium",
+      "image": "https://i.postimg.cc/zBCDjPS1/607b2866059d0f666de4f99df0b5f61e.jpg"
     }
   ]
-}
+    }
