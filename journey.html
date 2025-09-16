@@ -2,33 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Storvia - Journey</title>
+  <title>Circle ⭕ – Marketplace</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.0/dist/gsap.min.js"></script>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Storvia</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="stores.html">Stores</a>
-      <a href="promo.html">Promotions</a>
-      <a href="journey.html" class="active">Journey</a>
-    </nav>
+  <header class="top-nav">
+    <input type="text" placeholder="Search..."/>
+    <div class="icons">
+      <span class="notification">🔔</span>
+      <span class="profile">👤</span>
+    </div>
   </header>
 
-  <!-- Journey / Travel Section -->
-  <main class="journey-section">
-    <h1>Owner's Travel Experiences</h1>
-    <div id="journeyGallery" class="journey-gallery"></div>
-  </main>
+  <main class="marketplace-cards"></main>
 
-  <!-- Snackbar -->
   <div id="snackbar"></div>
 
-  <!-- Scripts -->
-  <script type="module" src="js/journey.js"></script>
+  <nav class="bottom-nav">
+    <button class="nav-btn">Home</button>
+    <button class="nav-btn">Circles</button>
+    <button class="nav-btn active">Marketplace</button>
+    <button class="nav-btn">Academics</button>
+    <button class="nav-btn">Profile</button>
+  </nav>
+
+  <script src="js/helpers.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
