@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Circle ⭕ - Home Feed</title>
-<link rel="stylesheet" href="css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle ⭕ - Home Feed</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
 
-<header class="top-nav">
-  <input type="text" placeholder="Search...">
+<header class="top-nav" role="banner">
+  <input type="text" id="searchInput" placeholder="Search..." aria-label="Search">
   <div class="icons">
-    <span class="notification">🔔</span>
-    <span class="profile">👤</span>
+    <button class="notification" aria-label="Notifications">
+      🔔 <span class="badge">3</span>
+    </button>
+    <button class="profile" aria-label="Profile">👤</button>
+    <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
   </div>
 </header>
 
-<div id="snackbar"></div>
+<div id="snackbar" role="status" aria-live="polite"></div>
 
 <main class="main-content">
   <section class="home-feed" id="homeFeed">
-    <div class="card">📢 Library hours updated.</div>
-    <div class="card trending">🔥 CSC 300L Exam Prep Tips.</div>
-    <div class="card">🎉 Faculty Dinner Event.</div>
+    <!-- Cards will load dynamically from feed.json -->
   </section>
 </main>
 
-<nav class="bottom-nav">
-  <a href="index.html" class="nav-btn active">⭕ Home</a>
+<nav class="bottom-nav" role="navigation">
+  <a href="index.html" class="nav-btn active" aria-current="page">⭕ Home</a>
   <a href="circles.html" class="nav-btn">Circles</a>
   <a href="marketplace.html" class="nav-btn">Marketplace</a>
   <a href="academics.html" class="nav-btn">Academics</a>
@@ -37,6 +38,6 @@
 </nav>
 
 <script src="js/app.js"></script>
-<script src="js/carousel.js"></script>
+<script src="js/feed.js"></script>
 </body>
 </html>
