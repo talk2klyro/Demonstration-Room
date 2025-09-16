@@ -1,157 +1,134 @@
-// =========================
-// Circle ⭕ App.js
-// =========================
+document.addEventListener('DOMContentLoaded', () => {
 
-// ---------- 1. Bottom Navigation ----------
-document.querySelectorAll(".bottom-nav .nav-btn").forEach((btn, i) => {
-  btn.addEventListener("click", () => {
-    const pages = [
-      "index.html",
-      "circles.html",
-      "marketplace.html",
-      "academics.html",
-      "profile.html"
-    ];
-    window.location.href = pages[i];
-  });
-});
-
-// ---------- 2. Snackbar Notifications ----------
-function showSnackbar(message) {
-  const snackbar = document.getElementById("snackbar");
-  if (!snackbar) return;
-  snackbar.textContent = message;
-  snackbar.classList.add("show");
-  setTimeout(() => snackbar.classList.remove("show"), 3000);
-}
-
-// Example trigger:
-setTimeout(() => showSnackbar("Welcome to Circle ⭕! 🎉"), 1000);
-
-// ---------- 3. Tabs Switching (Circles, Academics) ----------
-const tabs = document.querySelectorAll(".tab-btn");
-const tabContents = document.querySelectorAll(".tab-content");
-
-if (tabs.length) {
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-      tabContents.forEach(tc => (tc.style.display = "none"));
-      document.getElementById(tab.dataset.tab).style.display = "block";
-    });
-  });
-}
-
-// ---------- 4. Floating Action Button (FAB) ----------
-const fab = document.querySelector(".fab");
-if (fab) {
-  fab.addEventListener("click", () => {
-    const modal = document.getElementById("uploadModal");
-    if (modal) modal.style.display = "flex";
-  });
-}
-
-// ---------- 5. File Upload Modal ----------
-const modal = document.getElementById("uploadModal");
-if (modal) {
-  const uploadBtn = document.getElementById("uploadBtn");
-  const closeBtn = document.querySelector(".close");
-
-  uploadBtn.addEventListener("click", () => {
-    const file = document.getElementById("fileInput").files[0];
-    if (file) showSnackbar(`${file.name} uploaded successfully! ✅`);
-    modal.style.display = "none";
-  });
-
-  closeBtn.addEventListener("click", () => (modal.style.display = "none"));
-}
-
-// ---------- 6. Trending Carousel ----------
-const track = document.querySelector(".carousel-track");
-if (track) {
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % track.children.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }, 3000);
-}
-
-// ---------- 7. Drag & Drop (Sortable.js) ----------
-if (typeof Sortable !== "undefined") {
-  const feed = document.getElementById("homeFeed");
-  if (feed) {
-    Sortable.create(feed, {
-      animation: 150,
-      ghostClass: "dragging"
-    });
-  }
-
-  const circles = document.getElementById("circleList");
-  if (circles) {
-    Sortable.create(circles, {
-      animation: 150,
-      ghostClass: "dragging"
-    });
-  }
-}
-
-// ---------- 8. Dynamic Data Binding ----------
-if (document.getElementById("homeFeed")) {
-  fetch("data/resources.json")
+  // ===== Load resources.json =====
+  fetch('data/resources.json')
     .then(res => res.json())
     .then(data => {
-      const feed = document.getElementById("homeFeed");
-      feed.innerHTML = data.feed
-        .map(
-          item => `
-        <div class="card">
-          <h4>${item.title}</h4>
-          <p>${item.desc}</p>
-          <button>${item.action}</button>
-        </div>`
-        )
-        .join("");
+      // Academics Hub
+      const pastQsContainer = document.getElementById('pastQs');
+      data.academics.pastQuestions.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'resource-card';
+        div.innerHTML = `${item.title} <button onclick="downloadResource('${item.file}')">Download</button>`;
+        pastQsContainer.appendChild(div);
+      });
+
+      const notesContainer = document.getElementById('notes');
+      data.academics.notes.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'resource-card';
+        div.innerHTML = `${item.title} <button onclick="downloadResource('${item.file}')">Download</button>`;
+        notesContainer.appendChild(div);
+      });
+
+      const tutorsContainer = document.getElementById('tutors');
+      data.academics.tutors.forEach(tutor => {
+        const div = document.createElement('div');
+        div.className = 'resource-card';
+        div.innerHTML = `${tutor.name} - ${tutor.subject} <button>Contact</button>`;
+        tutorsContainer.appendChild(div);
+      });
+
+      const studyGroupsContainer = document.getElementById('studyGroups');
+      data.academics.studyGroups.forEach(group => {
+        const div = document.createElement('div');
+        div.className = 'resource-card';
+        div.innerHTML = `${group.name} - Members: ${group.members}`;
+        studyGroupsContainer.appendChild(div);
+      });
+
+      // Marketplace
+      const marketplaceContainer = document.querySelector('.marketplace');
+      data.marketplace.forEach(shop => {
+        const div = document.createElement('div');
+        div.className = 'marketplace-card';
+        div.innerHTML = `<h4>${shop.name}</h4><p>${shop.description} - ${shop.price}</p><button>Chat</button>`;
+        marketplaceContainer.appendChild(div);
+      });
     })
-    .catch(() => showSnackbar("⚠️ Offline Mode: Showing cached feed!"));
-}
+    .catch(err => console.error('Failed to load resources.json:', err));
 
-// ---------- 9. Student Dashboards ----------
-function updateDashboard(stats) {
-  for (let key in stats) {
-    const el = document.getElementById(key);
-    if (el) el.textContent = stats[key];
+  // ===== Tabs =====
+  const tabs = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      tabContents.forEach(tc => tc.style.display='none');
+      const target = document.getElementById(tab.dataset.tab);
+      if(target) target.style.display='block';
+    });
+  });
+
+  // ===== Snackbars =====
+  function showSnackbar(message){
+    const snackbar = document.getElementById('snackbar');
+    snackbar.textContent = message;
+    snackbar.style.visibility = "visible";
+    gsap.fromTo(snackbar, {y:50, opacity:0}, {y:0, opacity:1, duration:0.5});
+    setTimeout(() => {
+      gsap.to(snackbar, {y:50, opacity:0, duration:0.5, onComplete: ()=> snackbar.style.visibility="hidden"});
+    }, 3000);
   }
-}
+  window.showSnackbar = showSnackbar; // make global
 
-// Example: Circles dashboard
-if (document.body.classList.contains("circles-page")) {
-  updateDashboard({ groupsJoined: 3, activePosts: 12 });
-}
+  // ===== Download Simulation =====
+  window.downloadResource = function(file){
+    showSnackbar(`Downloading ${file}...`);
+  }
 
-// Example: Academics dashboard
-if (document.body.classList.contains("academics-page")) {
-  updateDashboard({ resourcesUploaded: 15, tutorsAvailable: 4 });
-}
+  // ===== Drag-and-Drop =====
+  const homeFeed = document.getElementById('homeFeed');
+  if(homeFeed){ Sortable.create(homeFeed, {animation:150, ghostClass:'dragging'}); }
 
-// ---------- 10. Gamification (XP Points) ----------
-function addXP(points) {
-  let xp = localStorage.getItem("xp") || 0;
-  xp = parseInt(xp) + points;
-  localStorage.setItem("xp", xp);
-  const xpDisplay = document.getElementById("xpPoints");
-  if (xpDisplay) xpDisplay.textContent = xp;
-}
+  const circlesModule = document.getElementById('circlesModule');
+  if(circlesModule){
+    const postsTab = document.getElementById('posts');
+    if(postsTab){ Sortable.create(postsTab, {animation:150, ghostClass:'dragging'}); }
+  }
 
-// Award XP on upload
-if (uploadBtn) {
-  uploadBtn.addEventListener("click", () => addXP(10));
-}
+  // ===== FAB Animations =====
+  const fabs = document.querySelectorAll('.fab, .fab-upload');
+  fabs.forEach(fab => gsap.from(fab, {scale:0.8, duration:0.5, ease:"back.out(1.7)"}));
 
-// ---------- 11. Offline Caching (PWA) ----------
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("js/sw.js")
-    .then(() => console.log("✅ Service Worker Registered"))
-    .catch(err => console.error("SW registration failed", err));
-}
+  // ===== Badge System =====
+  window.awardBadge = function(name){
+    const container = document.querySelector('.badge-container');
+    if(container){
+      const span = document.createElement('span');
+      span.classList.add('badge');
+      span.textContent = name;
+      container.appendChild(span);
+      showSnackbar(`Badge earned: ${name}`);
+    }
+  }
+
+  // ===== Modal Handling =====
+  const modal = document.getElementById('uploadModal');
+  if(modal){
+    const fabButton = document.querySelector('.fab');
+    const closeBtn = modal.querySelector('.close');
+    const uploadBtn = modal.querySelector('#uploadBtn');
+    fabButton.addEventListener('click', ()=> modal.style.display='flex');
+    closeBtn.addEventListener('click', ()=> modal.style.display='none');
+    window.addEventListener('click', e => { if(e.target === modal) modal.style.display='none'; });
+    uploadBtn.addEventListener('click', ()=>{
+      const fileInput = document.getElementById('fileInput');
+      if(fileInput.files.length > 0){
+        showSnackbar(`${fileInput.files[0].name} uploaded!`);
+        modal.style.display='none';
+        fileInput.value = '';
+        awardBadge('📁 Contributor');
+      } else { showSnackbar('Please select a file!'); }
+    });
+  }
+
+  // ===== Register Service Worker =====
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('js/sw.js')
+      .then(()=> console.log('Service Worker Registered'))
+      .catch(err=> console.log('SW registration failed:', err));
+  }
+
+});
