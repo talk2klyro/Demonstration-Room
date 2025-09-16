@@ -1,0 +1,66 @@
+{
+  "homeFeed": [
+    {
+      "type": "announcement",
+      "title": "Library Extended Hours",
+      "content": "The library will now be open until 10 PM during exam week."
+    },
+    {
+      "type": "trending",
+      "title": "CSC 300L Study Hacks",
+      "content": "Check out tips shared by top students!"
+    }
+  ],
+  "circles": [
+    {
+      "name": "CSC 300L Study Group",
+      "members": ["John Doe", "Jane Smith", "Alice Johnson"],
+      "posts": [
+        {"content": "Exam prep session tomorrow at 5 PM."}
+      ],
+      "files": [],
+      "events": []
+    }
+  ],
+  "marketplace": [
+    {
+      "name": "John’s Tutoring",
+      "category": "services",
+      "description": "CSC 300L Exam Prep - $5/hr"
+    },
+    {
+      "name": "Campus Cafeteria",
+      "category": "food",
+      "description": "New meal plans now available!"
+    }
+  ],
+  "academics": [
+    {
+      "type": "pastQuestions",
+      "title": "CSC 200L Past Questions",
+      "link": "#"
+    },
+    {
+      "type": "notes",
+      "title": "Mathematics Notes",
+      "link": "#"
+    },
+    {
+      "type": "tutors",
+      "title": "Jane Doe - Math Tutor",
+      "link": "#"
+    }
+  ],
+  "events": [
+    {
+      "title": "Faculty Dinner",
+      "date": "2025-09-10",
+      "location": "Campus Dining Hall"
+    },
+    {
+      "title": "Hackathon 2025",
+      "date": "2025-09-15",
+      "location": "Tech Lab"
+    }
+  ]
+}
