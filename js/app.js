@@ -1,98 +1,98 @@
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('data/resources.json')
-    .then(res => res.json())
-    .then(data => {
-      // ===== HOME FEED =====
-      const homeFeed = document.getElementById('homeFeed');
-      if (homeFeed) {
-        data.homeFeed.forEach(post => {
-          const div = document.createElement('div');
-          div.className = `feed-card ${post.type}`;
-          div.innerHTML = `
-            <img src="${post.image}" alt="${post.title}" />
-            <h4>${post.title}</h4>
-            <p>${post.content}</p>
-          `;
-          homeFeed.appendChild(div);
-        });
-      }
+// ==========================
+// app.js - Core Application
+// ==========================
 
-      // ===== ACADEMICS HUB =====
-      const pastQsContainer = document.getElementById('pastQs');
-      data.academics.pastQuestions.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'resource-card';
-        div.innerHTML = `
-          <img src="${item.image}" alt="${item.title}" />
-          <h5>${item.title}</h5>
-          <small>${item.tags ? item.tags.join(', ') : ''}</small>
-          <button onclick="downloadResource('${item.link}')">Download</button>
-        `;
-        pastQsContainer.appendChild(div);
-      });
+// ✅ Global App State
+const App = {
+  theme: localStorage.getItem("theme") || "light",
+  snackbarTimeout: null,
+};
 
-      const notesContainer = document.getElementById('notes');
-      data.academics.notes.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'resource-card';
-        div.innerHTML = `
-          <img src="${item.image}" alt="${item.title}" />
-          <h5>${item.title}</h5>
-          <small>${item.tags ? item.tags.join(', ') : ''}</small>
-          <button onclick="downloadResource('${item.link}')">Download</button>
-        `;
-        notesContainer.appendChild(div);
-      });
+// --------------------------
+// 1. Theme Handling
+// --------------------------
+App.applyTheme = function () {
+  document.body.setAttribute("data-theme", App.theme);
+};
 
-      const tutorsContainer = document.getElementById('tutors');
-      data.academics.tutors.forEach(tutor => {
-        const div = document.createElement('div');
-        div.className = 'tutor-card';
-        div.innerHTML = `
-          <img src="${tutor.image}" alt="${tutor.name}" />
-          <h5>${tutor.name}</h5>
-          <p>Subject: ${tutor.subject}</p>
-          <button>Contact</button>
-        `;
-        tutorsContainer.appendChild(div);
-      });
+App.toggleTheme = function () {
+  App.theme = App.theme === "light" ? "dark" : "light";
+  localStorage.setItem("theme", App.theme);
+  App.applyTheme();
+};
 
-      // ===== MARKETPLACE =====
-      const marketplaceContainer = document.querySelector('.marketplace');
-      if (marketplaceContainer) {
-        data.marketplace.forEach(shop => {
-          const div = document.createElement('div');
-          div.className = 'marketplace-card';
-          div.innerHTML = `
-            <img src="${shop.image}" alt="${shop.name}" />
-            <h4>${shop.name}</h4>
-            <p>${shop.description}</p>
-            <p><strong>${shop.price}</strong></p>
-            <button onclick="showSnackbar('Contact: ${shop.contact}')">Chat</button>
-          `;
-          marketplaceContainer.appendChild(div);
-        });
-      }
+// --------------------------
+// 2. Snackbar Notifications
+// --------------------------
+App.showSnackbar = function (message, duration = 3000) {
+  const snackbar = document.getElementById("snackbar");
+  if (!snackbar) return;
 
-      // ===== EVENTS =====
-      const eventsContainer = document.getElementById('eventsList');
-      if (eventsContainer) {
-        data.events.forEach(evt => {
-          const div = document.createElement('div');
-          div.className = 'event-card';
-          div.innerHTML = `
-            <img src="${evt.image}" alt="${evt.title}" />
-            <h4>${evt.title}</h4>
-            <p>${evt.date} – ${evt.location}</p>
-          `;
-          eventsContainer.appendChild(div);
-        });
-      }
-    })
-    .catch(err => console.error('Failed to load resources.json:', err));
+  snackbar.textContent = message;
+  snackbar.classList.add("show");
+
+  clearTimeout(App.snackbarTimeout);
+  App.snackbarTimeout = setTimeout(() => {
+    snackbar.classList.remove("show");
+  }, duration);
+};
+
+// --------------------------
+// 3. Bottom Navigation
+// --------------------------
+App.initNav = function () {
+  const navBtns = document.querySelectorAll(".nav-btn");
+
+  navBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      navBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Example: Snackbar feedback
+      App.showSnackbar(`${btn.textContent} opened`);
+    });
+  });
+};
+
+// --------------------------
+// 4. Header Search
+// --------------------------
+App.initSearch = function () {
+  const searchInput = document.querySelector(".top-nav input");
+  if (!searchInput) return;
+
+  searchInput.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach((card) => {
+      const match = card.textContent.toLowerCase().includes(query);
+      card.style.display = match ? "block" : "none";
+    });
+  });
+};
+
+// --------------------------
+// 5. Scroll-to-Top (Optional)
+// --------------------------
+App.initScrollToTop = function () {
+  const fab = document.querySelector(".fab");
+  if (!fab) return;
+
+  fab.addEventListener("click", () => {
+    gsap.to(window, { scrollTo: 0, duration: 1, ease: "power2.out" });
+  });
+};
+
+// --------------------------
+// Init All
+// --------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  App.applyTheme();
+  App.initNav();
+  App.initSearch();
+  App.initScrollToTop();
+
+  // Example Snackbar on load
+  App.showSnackbar("Welcome back 👋");
 });
-
-// ===== Download Simulation =====
-function downloadResource(file) {
-  showSnackbar(`Downloading ${file}...`);
-                        }
