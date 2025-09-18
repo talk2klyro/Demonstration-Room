@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="logo">LMS SaaS</div>
+    <input type="text" placeholder="Search courses..." class="search-bar">
+    <div class="profile-dropdown">
+      <span id="profileName">John Doe 👤</span>
+      <div class="dropdown-menu">
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">My Courses</a>
+        <a href="#">Join Class</a>
+        <a href="#">Entertainment Hub</a>
+        <a href="#">Certificates</a>
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2>Welcome Back, John! 🎓</h2>
+      <p>Here’s your learning progress:</p>
+
+      <div class="progress-section">
+        <div class="progress-card">
+          <h3>Course Progress</h3>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%;"></div>
+          </div>
+          <p>3/5 lessons completed</p>
+        </div>
+
+        <div class="progress-card">
+          <h3>Next Class</h3>
+          <p>Web Development 101</p>
+          <button class="btn" onclick="joinClass()">Join Now</button>
+        </div>
+
+        <div class="progress-card">
+          <h3>Certificates</h3>
+          <p>2 earned</p>
+          <button class="btn" onclick="viewCertificates()">View</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function joinClass() {
+      alert("Redirecting to class…");
+      // Replace with actual link or embed
+    }
+
+    function viewCertificates() {
+      alert("Redirecting to certificates…");
+    }
+
+    // Sidebar toggle for mobile (optional)
+    // Add JS here later if needed
+  </script>
+</body>
+</html>
