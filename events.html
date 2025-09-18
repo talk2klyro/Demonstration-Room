@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Events - Circle ⭕ | YSU Student Platform</title>
+    <meta name="description" content="Discover exciting events, workshops, and activities happening at YSU. Never miss out on campus life." />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-desktop" id="desktop-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="circles.html" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Circles</span>
+            </a>
+            <a href="marketplace.html" class="nav-link">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Marketplace</span>
+            </a>
+            <a href="academics.html" class="nav-link">
+                <i class="fas fa-book-open"></i>
+                <span>Academics</span>
+            </a>
+            <a href="events.html" class="nav-link active">
+                <i class="fas fa-calendar"></i>
+                <span>Events</span>
+            </a>
+            <a href="profile.html" class="nav-link">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Mobile Navigation -->
+    <nav class="nav-mobile" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <h2>Circle ⭕</h2>
+            <p>YSU Student Platform</p>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="nav-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="circles.html" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Circles</span>
+            </a>
+            <a href="marketplace.html" class="nav-link">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Marketplace</span>
+            </a>
+            <a href="academics.html" class="nav-link">
+                <i class="fas fa-book-open"></i>
+                <span>Academics</span>
+            </a>
+            <a href="events.html" class="nav-link active">
+                <i class="fas fa-calendar"></i>
+                <span>Events</span>
+            </a>
+            <a href="profile.html" class="nav-link">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="container">
+            <!-- Header -->
+            <div class="page-header">
+                <h1>Campus Events</h1>
+                <p>Discover exciting events, workshops, and activities happening at YSU</p>
+                
+                <!-- Search and Create -->
+                <div class="search-section">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search events, workshops, activities..." id="search-input">
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal('create-event-modal')">
+                        <i class="fas fa-plus"></i>
+                        Create Event
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-section">
+                <div class="filter-buttons" id="category-filters">
+                    <button class="filter-btn active" data-category="all">
+                        <i class="fas fa-calendar"></i>
+                        All Events
+                    </button>
+                    <button class="filter-btn" data-category="academic">
+                        <i class="fas fa-book-open"></i>
+                        Academic
+                    </button>
+                    <button class="filter-btn" data-category="social">
+                        <i class="fas fa-users"></i>
+                        Social
+                    </button>
+                    <button class="filter-btn" data-category="career">
+                        <i class="fas fa-briefcase"></i>
+                        Career
+                    </button>
+                    <button class="filter-btn" data-category="workshop">
+                        <i class="fas fa-tools"></i>
+                        Workshops
+                    </button>
+                </div>
+            </div>
+
+            <!-- Events Grid -->
+            <div class="cards-grid" id="events-grid">
+                <!-- Events will be loaded dynamically -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <i class="fas fa-calendar"></i>
+                <h3>No events found</h3>
+                <p>Try adjusting your search or create a new event</p>
+                <button class="btn btn-primary" onclick="openModal('create-event-modal')">
+                    <i class="fas fa-plus"></i>
+                    Create New Event
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Event Modal -->
+    <div class="modal" id="create-event-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Event</h3>
+                <button class="modal-close" onclick="closeModal('create-event-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="event-title">Event Title</label>
+                    <input type="text" id="event-title" placeholder="e.g., Study Session">
+                </div>
+                <div class="form-group">
+                    <label for="event-date">Date</label>
+                    <input type="date" id="event-date">
+                </div>
+                <div class="form-group">
+                    <label for="event-time">Time</label>
+                    <input type="time" id="event-time">
+                </div>
+                <div class="form-group">
+                    <label for="event-location">Location</label>
+                    <input type="text" id="event-location" placeholder="e.g., Kilcawley Center">
+                </div>
+                <div class="form-group">
+                    <label for="event-description">Description</label>
+                    <textarea id="event-description" rows="3" placeholder="Describe your event..."></textarea>
+                </div>
+                <button class="btn btn-primary btn-full" onclick="createEvent()">
+                    Create Event
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize events page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadEvents();
+            setupSearch();
+            setupFilters();
+        });
+    </script>
+</body>
+</html>
