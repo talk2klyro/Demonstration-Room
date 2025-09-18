@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Entertainment Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="logo">LMS SaaS</div>
+    <input type="text" placeholder="Search posts..." class="search-bar">
+    <div class="profile-dropdown">
+      <span id="profileName">John Doe 👤</span>
+      <div class="dropdown-menu">
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">My Courses</a>
+        <a href="#">Join Class</a>
+        <a href="#" class="active">Entertainment Hub</a>
+        <a href="#">Certificates</a>
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2>Entertainment Hub 🎉</h2>
+      <p>Catch up with memes, music, short skits, and student posts!</p>
+
+      <div class="hub-grid">
+        <!-- Example post card -->
+        <div class="hub-card">
+          <img src="https://via.placeholder.com/300x180.png?text=Meme+1" alt="Meme 1">
+          <h3>Campus Meme of the Day</h3>
+          <p>😂 When the professor says the exam is easy…</p>
+          <button class="btn" onclick="likePost()">👍 Like</button>
+        </div>
+
+        <div class="hub-card">
+          <img src="https://via.placeholder.com/300x180.png?text=Music+Playlist" alt="Music">
+          <h3>Top Hits Playlist</h3>
+          <p>Listen to the trending songs on campus</p>
+          <button class="btn" onclick="playMusic()">▶️ Play</button>
+        </div>
+
+        <div class="hub-card">
+          <img src="https://via.placeholder.com/300x180.png?text=Short+Skit" alt="Skit">
+          <h3>Short Skit</h3>
+          <p>😂 Comedy skit uploaded by your fellow student</p>
+          <button class="btn" onclick="watchSkit()">▶️ Watch</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function likePost() {
+      alert("You liked this post!");
+    }
+
+    function playMusic() {
+      alert("Playing music…");
+    }
+
+    function watchSkit() {
+      alert("Opening skit video…");
+    }
+  </script>
+</body>
+</html>
