@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2>Create your account 🚀</h2>
+      <p class="subtitle">Join as a student or tutor today</p>
+
+      <form id="signupForm" class="auth-form">
+        <input type="text" id="fullName" placeholder="Full name" required>
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPassword" placeholder="Password" required>
+
+        <select id="role" required>
+          <option value="">Select Role</option>
+          <option value="student">Student</option>
+          <option value="tutor">Tutor</option>
+        </select>
+
+        <button type="submit" class="btn">Create Account</button>
+      </form>
+
+      <div class="divider"><span>or</span></div>
+
+      <div class="social-logins">
+        <button class="btn-outline" onclick="signupWithGoogle()">Sign up with Google</button>
+        <button class="btn-outline" onclick="signupWithOtp()">Sign up with Email OTP</button>
+      </div>
+
+      <p class="redirect">Already have an account? <a href="index.html">Login</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
