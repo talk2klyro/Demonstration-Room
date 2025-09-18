@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
-  <title>Circle ⭕ - YSU Student Platform | Study Groups, Marketplace & Academic Resources</title>
-  <meta
-    name="description"
-    content="Join Circle ⭕, Youngstown State University's premier student platform. Connect with study groups, buy/sell textbooks, access academic resources, find tutors, and discover campus events. Your gateway to academic success at YSU."
-  />
-  <meta name="author" content="Circle Team" />
-  <meta
-    name="keywords"
-    content="YSU, Youngstown State University, student platform, study groups, marketplace, academic resources, tutors, campus events"
-  />
-  <link rel="canonical" href="https://circle-ysu.com" />
-
-  <meta property="og:title" content="Circle ⭕ - YSU Student Platform" />
-  <meta
-    property="og:description"
-    content="Connect, Learn, and Thrive Together at Youngstown State University. Join study circles, access resources, and build your academic community."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://circle-ysu.com" />
-  <meta property="og:image" content="https://circle-ysu.com/og-image.jpg" />
-  <meta property="og:site_name" content="Circle ⭕" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@CircleYSU" />
-  <meta name="twitter:title" content="Circle ⭕ - YSU Student Platform" />
-  <meta
-    name="twitter:description"
-    content="Connect, Learn, and Thrive Together at Youngstown State University"
-  />
-  <meta name="twitter:image" content="https://circle-ysu.com/og-image.jpg" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div id="root"></div>
-  <!-- Point to your compiled JavaScript bundle -->
-  <script type="module" src="./dist/assets/index.js"></script>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2>Welcome back 👋</h2>
+      <p class="subtitle">Login to continue your learning journey</p>
+
+      <form id="loginForm" class="auth-form">
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        
+        <div class="password-wrapper">
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <span class="toggle-password">👁️</span>
+        </div>
+
+        <a href="#" class="forgot-link">Forgot password?</a>
+        <button type="submit" class="btn">Login</button>
+      </form>
+
+      <div class="divider"><span>or</span></div>
+
+      <div class="social-logins">
+        <button class="btn-outline" onclick="loginWithGoogle()">Continue with Google</button>
+        <button class="btn-outline" onclick="loginWithOtp()">Continue with Email OTP</button>
+      </div>
+
+      <p class="redirect">Don’t have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
