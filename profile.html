@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="logo">LMS SaaS</div>
+    <input type="text" placeholder="Search courses..." class="search-bar">
+    <div class="profile-dropdown">
+      <span id="profileName">John Doe 👤</span>
+      <div class="dropdown-menu">
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">My Courses</a>
+        <a href="#">Join Class</a>
+        <a href="entertainment.html">Entertainment Hub</a>
+        <a href="#">Certificates</a>
+        <a href="profile.html" class="active">Profile</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2>My Profile 👤</h2>
+      <p>Manage your account and learning progress</p>
+
+      <div class="profile-section">
+        <div class="profile-card">
+          <img src="https://via.placeholder.com/150" alt="Profile Picture" class="avatar">
+          <h3 id="userName">John Doe</h3>
+          <p id="userRole">Student</p>
+          <button class="btn" onclick="editProfile()">Edit Profile</button>
+        </div>
+
+        <div class="profile-card">
+          <h3>Learning Stats 📊</h3>
+          <p>Courses Enrolled: 5</p>
+          <p>Courses Completed: 3</p>
+          <p>Certificates Earned: 2</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%;"></div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <h3>Subscription & Payments 💳</h3>
+          <p>Plan: Premium</p>
+          <p>Last Payment: 15 Sep 2025</p>
+          <button class="btn" onclick="viewPayments()">View History</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function editProfile() {
+      alert("Redirecting to profile edit page...");
+    }
+
+    function viewPayments() {
+      alert("Redirecting to payment history...");
+    }
+  </script>
+</body>
+</html>
