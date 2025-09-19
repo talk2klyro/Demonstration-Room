@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "lesson_id": 1,
+    "question": "What does HTML stand for?",
+    "options": ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks Text Mark Language"],
+    "answer": "Hyper Text Markup Language"
+  },
+  {
+    "id": 2,
+    "lesson_id": 1,
+    "question": "Which tag is used for a paragraph?",
+    "options": ["<p>", "<h1>", "<div>"],
+    "answer": "<p>"
+  },
+  {
+    "id": 3,
+    "lesson_id": 2,
+    "question": "CSS is used for?",
+    "options": ["Styling HTML", "Structuring HTML", "Adding scripts"],
+    "answer": "Styling HTML"
+  }
+]
