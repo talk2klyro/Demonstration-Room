@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "HTML Basics Quiz",
+    "type": "quiz",
+    "lesson_id": 1,
+    "due_date": "2025-09-20",
+    "link": "quiz.html"
+  },
+  {
+    "id": 2,
+    "title": "CSS Flexbox Assignment",
+    "type": "assignment",
+    "lesson_id": 2,
+    "due_date": "2025-09-22",
+    "link": "assignment1.html"
+  },
+  {
+    "id": 3,
+    "title": "JavaScript Basics Quiz",
+    "type": "quiz",
+    "lesson_id": 3,
+    "due_date": "2025-09-25",
+    "link": "quiz2.html"
+  }
+]
