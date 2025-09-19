@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Lesson</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="logo">LMS SaaS</div>
+    <input type="text" placeholder="Search lessons..." class="search-bar" id="searchInput">
+    <div class="profile-dropdown">
+      <span id="profileName">John Doe 👤</span>
+      <div class="dropdown-menu">
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="courses.html">My Courses</a>
+        <a href="#" class="active">Lessons</a>
+        <a href="entertainment.html">Entertainment Hub</a>
+        <a href="#">Certificates</a>
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2>Course Lessons 📚</h2>
+      <div class="lessons-list" id="lessonsList">
+        <!-- Lessons will be rendered here dynamically -->
+      </div>
+
+      <div class="lesson-player" id="lessonPlayer">
+        <iframe id="lessonVideo" width="100%" height="360" src="" frameborder="0" allowfullscreen></iframe>
+        <h3 id="lessonTitle"></h3>
+        <p id="lessonNotes"></p>
+        <p><strong>Duration:</strong> <span id="lessonDuration"></span></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="lesson.js"></script>
+</body>
+</html>
