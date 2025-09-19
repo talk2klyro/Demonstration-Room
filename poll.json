@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Difficulty understanding HTML tags",
+    "description": "I struggle with remembering HTML tags and their purposes.",
+    "upvotes": 5,
+    "solution": "https://www.canva.com/design/HTML-Quick-Reference"
+  },
+  {
+    "id": 2,
+    "title": "CSS layout confusion",
+    "description": "I can't figure out flexbox and grid layouts.",
+    "upvotes": 8,
+    "solution": "https://www.canva.com/design/CSS-Flex-Grid-Guide"
+  },
+  {
+    "id": 3,
+    "title": "Time management for assignments",
+    "description": "I can't manage time for multiple courses simultaneously.",
+    "upvotes": 3,
+    "solution": "https://www.canva.com/design/Time-Management-Template"
+  }
+]
