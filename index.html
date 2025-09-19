@@ -1,198 +1,150 @@
-‎<!DOCTYPE html>
-‎<html lang="en">
-‎<head>
-‎  <meta charset="UTF-8">
-‎  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-‎  <title>LMS | Login</title>
-‎  <style>
-‎    body {
-‎      font-family: Arial, sans-serif;
-‎      background: #f9fafb;
-‎      margin: 0;
-‎      display: flex;
-‎      justify-content: center;
-‎      align-items: center;
-‎      min-height: 100vh;
-‎    }
-‎
-‎    .auth-container {
-‎      width: 100%;
-‎      max-width: 400px;
-‎      padding: 20px;
-‎    }
-‎
-‎    .auth-box {
-‎      background: #fff;
-‎      border-radius: 12px;
-‎      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-‎      padding: 30px;
-‎      text-align: center;
-‎    }
-‎
-‎    h2 {
-‎      margin-bottom: 8px;
-‎    }
-‎
-‎    .subtitle {
-‎      color: #6b7280;
-‎      margin-bottom: 20px;
-‎    }
-‎
-‎    .auth-form {
-‎      display: flex;
-‎      flex-direction: column;
-‎      gap: 15px;
-‎    }
-‎
-‎    input {
-‎      padding: 10px;
-‎      border: 1px solid #d1d5db;
-‎      border-radius: 8px;
-‎      font-size: 1rem;
-‎    }
-‎
-‎    input:focus {
-‎      outline: none;
-‎      border-color: #6366f1;
-‎      box-shadow: 0 0 0 2px #c7d2fe;
-‎    }
-‎
-‎    .password-wrapper {
-‎      position: relative;
-‎    }
-‎
-‎    .toggle-password {
-‎      position: absolute;
-‎      right: 12px;
-‎      top: 10px;
-‎      cursor: pointer;
-‎    }
-‎
-‎    .btn {
-‎      background: #6366f1;
-‎      color: white;
-‎      padding: 12px;
-‎      border: none;
-‎      border-radius: 8px;
-‎      font-weight: bold;
-‎      cursor: pointer;
-‎      transition: background 0.3s;
-‎    }
-‎
-‎    .btn:hover {
-‎      background: #4f46e5;
-‎    }
-‎
-‎    .btn-outline {
-‎      border: 1px solid #d1d5db;
-‎      padding: 10px;
-‎      border-radius: 8px;
-‎      background: white;
-‎      cursor: pointer;
-‎    }
-‎
-‎    .btn-outline:hover {
-‎      background: #f3f4f6;
-‎    }
-‎
-‎    .divider {
-‎      display: flex;
-‎      align-items: center;
-‎      margin: 20px 0;
-‎      color: #9ca3af;
-‎    }
-‎
-‎    .divider span {
-‎      padding: 0 10px;
-‎      background: #fff;
-‎    }
-‎
-‎    .divider::before, .divider::after {
-‎      content: "";
-‎      flex: 1;
-‎      height: 1px;
-‎      background: #e5e7eb;
-‎    }
-‎
-‎    .redirect {
-‎      margin-top: 20px;
-‎      color: #6b7280;
-‎    }
-‎
-‎    .redirect a {
-‎      color: #6366f1;
-‎      text-decoration: none;
-‎    }
-‎
-‎    .redirect a:hover {
-‎      text-decoration: underline;
-‎    }
-‎  </style>
-‎</head>
-‎<body>
-‎  <div class="auth-container">
-‎    <div class="auth-box">
-‎      <h2>Welcome back 👋</h2>
-‎      <p class="subtitle">Login to continue your learning journey</p>
-‎
-‎      <form id="loginForm" class="auth-form">
-‎        <input type="email" id="loginEmail" placeholder="Email" required>
-‎        
-‎        <div class="password-wrapper">
-‎          <input type="password" id="loginPassword" placeholder="Password" required>
-‎          <span class="toggle-password">👁️</span>
-‎        </div>
-‎
-‎        <a href="#" class="forgot-link">Forgot password?</a>
-‎        <button type="submit" class="btn">Login</button>
-‎      </form>
-‎
-‎      <div class="divider"><span>or</span></div>
-‎
-‎      <div class="social-logins">
-‎        <button class="btn-outline" onclick="loginWithGoogle()">Continue with Google</button>
-‎        <button class="btn-outline" onclick="loginWithOtp()">Continue with Email OTP</button>
-‎      </div>
-‎
-‎      <p class="redirect">Don’t have an account? <a href="signup.html">Sign up</a></p>
-‎    </div>
-‎  </div>
-‎
-‎  <script>
-‎    // Toggle password visibility
-‎    document.querySelectorAll(".toggle-password").forEach(icon => {
-‎      icon.addEventListener("click", () => {
-‎        const input = icon.previousElementSibling;
-‎        if (input.type === "password") {
-‎          input.type = "text";
-‎          icon.textContent = "🙈";
-‎        } else {
-‎          input.type = "password";
-‎          icon.textContent = "👁️";
-‎        }
-‎      });
-‎    });
-‎
-‎    // Dummy login handlers (replace with Clerk SDK later)
-‎    function loginWithGoogle() {
-‎      alert("Login with Google (Clerk integration placeholder)");
-‎    }
-‎
-‎    function loginWithOtp() {
-‎      alert("Login with Email OTP (Clerk integration placeholder)");
-‎    }
-‎
-‎    // Form submit
-‎    document.getElementById("loginForm").addEventListener("submit", e => {
-‎      e.preventDefault();
-‎      const email = document.getElementById("loginEmail").value;
-‎      const password = document.getElementById("loginPassword").value;
-‎
-‎      // TODO: Replace with Clerk auth
-‎      console.log("Email:", email, "Password:", password);
-‎      alert("Login successful! Redirecting to dashboard...");
-‎      window.location.href = "dashboard.html";
-‎    });
-‎  </script>
-‎</body>
-‎</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LMS | Dashboard Flow</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #1e3a8a;
+  }
+
+  .diagram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box {
+    background: #6366f1;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    min-width: 200px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  }
+
+  .box span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: #d1d5db;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .arrow-down {
+    width: 2px;
+    height: 40px;
+    background: #6366f1;
+    position: relative;
+    margin: 0 auto 20px auto;
+  }
+
+  .arrow-down::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: -5px;
+    border: 5px solid transparent;
+    border-top-color: #6366f1;
+  }
+
+  /* Colors for different modules */
+  .color-courses { background: #10b981; }
+  .color-class { background: #f59e0b; }
+  .color-poll { background: #ef4444; }
+  .color-blog { background: #8b5cf6; }
+  .color-quiz { background: #f97316; }
+  .color-cert { background: #3b82f6; }
+  .color-settings { background: #6b7280; }
+</style>
+</head>
+<body>
+<h1>LMS Dashboard Flow</h1>
+
+<div class="diagram-container">
+
+  <!-- Dashboard Header Box -->
+  <div class="box color-courses" onclick="openPage('dashboard.html')">
+    Dashboard
+    <span>dashboard.html</span>
+  </div>
+  <div class="arrow-down"></div>
+
+  <!-- First Row: Learning Modules -->
+  <div class="row">
+    <div class="box color-courses" onclick="openPage('courses.html')">
+      Courses
+      <span>courses.html</span>
+    </div>
+    <div class="box color-courses" onclick="openPage('lesson.html')">
+      Lesson
+      <span>lesson.html</span>
+    </div>
+    <div class="box color-class" onclick="openPage('class.html')">
+      Join Class
+      <span>class.html</span>
+    </div>
+    <div class="box color-poll" onclick="openPage('poll.html')">
+      Problem Poll
+      <span>poll.html</span>
+    </div>
+  </div>
+
+  <!-- Second Row: Engagement & Extra -->
+  <div class="row">
+    <div class="box color-blog" onclick="openPage('blog.html')">
+      Blog Hub
+      <span>blog.html</span>
+    </div>
+    <div class="box color-quiz" onclick="openPage('quiz-assignment.html')">
+      Quiz & Assignment
+      <span>quiz-assignment.html</span>
+    </div>
+    <div class="box color-cert" onclick="openPage('certificate.html')">
+      Certificates
+      <span>certificate.html</span>
+    </div>
+    <div class="box color-settings" onclick="openPage('settings.html')">
+      Settings
+      <span>settings.html</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function openPage(url) {
+    window.open(url, '_blank'); // Opens the clicked module in a new tab
+  }
+</script>
+
+</body>
+</html>
