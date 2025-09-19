@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "5 Tips to Master HTML Faster",
+    "author": "Jane Doe",
+    "date": "2025-09-15",
+    "summary": "Learn practical strategies to quickly grasp HTML concepts and improve coding efficiency.",
+    "link": "https://www.canva.com/design/HTML-Tips-Guide"
+  },
+  {
+    "id": 2,
+    "title": "CSS Flexbox vs Grid: Which to Use?",
+    "author": "John Smith",
+    "date": "2025-09-16",
+    "summary": "A beginner-friendly comparison of Flexbox and Grid for creating modern layouts.",
+    "link": "https://www.canva.com/design/CSS-Flexbox-Grid"
+  },
+  {
+    "id": 3,
+    "title": "Time Management for Online Learning",
+    "author": "Alice Brown",
+    "date": "2025-09-17",
+    "summary": "Effective strategies for managing multiple online courses without stress.",
+    "link": "https://www.canva.com/design/Time-Management-Template"
+  }
+]
