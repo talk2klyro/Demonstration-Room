@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "student": "John Doe",
+    "course": "Web Development 101",
+    "date": "2025-09-18",
+    "certificate_link": "certificates/webdev101.pdf"
+  },
+  {
+    "id": 2,
+    "student": "John Doe",
+    "course": "CSS Mastery",
+    "date": "2025-09-17",
+    "certificate_link": "certificates/css-mastery.pdf"
+  },
+  {
+    "id": 3,
+    "student": "John Doe",
+    "course": "JavaScript Basics",
+    "date": "2025-09-16",
+    "certificate_link": "certificates/js-basics.pdf"
+  }
+]
