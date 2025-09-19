@@ -1,260 +1,39 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>LMS | Login</title>  
-  <link rel="stylesheet" href="style.css">  
-</head>  
-<body>  
-  <div class="auth-container">  
-    <div class="auth-box">  
-      <h2>Welcome back 👋</h2>  
-      <p class="subtitle">Login to continue your learning journey</p>  
-  
-      <form id="loginForm" class="auth-form">  
-        <input type="email" id="loginEmail" placeholder="Email" required>  
-          
-        <div class="password-wrapper">  
-          <input type="password" id="loginPassword" placeholder="Password" required>  
-          <span class="toggle-password">👁️</span>  
-        </div>  
-  
-        <a href="#" class="forgot-link">Forgot password?</a>  
-        <button type="submit" class="btn">Login</button>  
-      </form>  
-  
-      <div class="divider"><span>or</span></div>  
-  
-      <div class="social-logins">  
-        <button class="btn-outline" onclick="loginWithGoogle()">Continue with Google</button>  
-        <button class="btn-outline" onclick="loginWithOtp()">Continue with Email OTP</button>  
-      </div>  
-  
-      <p class="redirect">Don’t have an account? <a href="signup.html">Sign up</a></p>  
-    </div>  
-  </div>  
-  <script src="script.js"></script>  
-</body>  
-</html>  
-  
-  
----  
-  
-🆕 signup.html (Signup)  
-  
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>LMS | Sign Up</title>  
-  <link rel="stylesheet" href="style.css">  
-</head>  
-<body>  
-  <div class="auth-container">  
-    <div class="auth-box">  
-      <h2>Create your account 🚀</h2>  
-      <p class="subtitle">Join as a student or tutor today</p>  
-  
-      <form id="signupForm" class="auth-form">  
-        <input type="text" id="fullName" placeholder="Full name" required>  
-        <input type="email" id="signupEmail" placeholder="Email" required>  
-        <input type="password" id="signupPassword" placeholder="Password" required>  
-  
-        <select id="role" required>  
-          <option value="">Select Role</option>  
-          <option value="student">Student</option>  
-          <option value="tutor">Tutor</option>  
-        </select>  
-  
-        <button type="submit" class="btn">Create Account</button>  
-      </form>  
-  
-      <div class="divider"><span>or</span></div>  
-  
-      <div class="social-logins">  
-        <button class="btn-outline" onclick="signupWithGoogle()">Sign up with Google</button>  
-        <button class="btn-outline" onclick="signupWithOtp()">Sign up with Email OTP</button>  
-      </div>  
-  
-      <p class="redirect">Already have an account? <a href="index.html">Login</a></p>  
-    </div>  
-  </div>  
-  <script src="script.js"></script>  
-</body>  
-</html>  
-  
-  
----  
-  
-🎨 style.css  
-  
-body {  
-  font-family: Arial, sans-serif;  
-  background: #f9fafb;  
-  margin: 0;  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  min-height: 100vh;  
-}  
-  
-.auth-container {  
-  width: 100%;  
-  max-width: 400px;  
-  padding: 20px;  
-}  
-  
-.auth-box {  
-  background: #fff;  
-  border-radius: 12px;  
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);  
-  padding: 30px;  
-  text-align: center;  
-}  
-  
-h2 {  
-  margin-bottom: 8px;  
-}  
-  
-.subtitle {  
-  color: #6b7280;  
-  margin-bottom: 20px;  
-}  
-  
-.auth-form {  
-  display: flex;  
-  flex-direction: column;  
-  gap: 15px;  
-}  
-  
-input, select {  
-  padding: 10px;  
-  border: 1px solid #d1d5db;  
-  border-radius: 8px;  
-  font-size: 1rem;  
-}  
-  
-input:focus, select:focus {  
-  outline: none;  
-  border-color: #6366f1;  
-  box-shadow: 0 0 0 2px #c7d2fe;  
-}  
-  
-.password-wrapper {  
-  position: relative;  
-}  
-  
-.toggle-password {  
-  position: absolute;  
-  right: 12px;  
-  top: 10px;  
-  cursor: pointer;  
-}  
-  
-.btn {  
-  background: #6366f1;  
-  color: white;  
-  padding: 12px;  
-  border: none;  
-  border-radius: 8px;  
-  font-weight: bold;  
-  cursor: pointer;  
-  transition: background 0.3s;  
-}  
-  
-.btn:hover {  
-  background: #4f46e5;  
-}  
-  
-.btn-outline {  
-  border: 1px solid #d1d5db;  
-  padding: 10px;  
-  border-radius: 8px;  
-  background: white;  
-  cursor: pointer;  
-}  
-  
-.btn-outline:hover {  
-  background: #f3f4f6;  
-}  
-  
-.divider {  
-  display: flex;  
-  align-items: center;  
-  margin: 20px 0;  
-  color: #9ca3af;  
-}  
-  
-.divider span {  
-  padding: 0 10px;  
-  background: #fff;  
-}  
-  
-.divider::before, .divider::after {  
-  content: "";  
-  flex: 1;  
-  height: 1px;  
-  background: #e5e7eb;  
-}  
-  
-.redirect {  
-  margin-top: 20px;  
-  color: #6b7280;  
-}  
-  
-.redirect a {  
-  color: #6366f1;  
-  text-decoration: none;  
-}  
-.redirect a:hover {  
-  text-decoration: underline;  
-}  
-  
-  
----  
-  
-⚡ script.js  
-  
-// Toggle password visibility  
-document.querySelectorAll(".toggle-password").forEach(icon => {  
-  icon.addEventListener("click", () => {  
-    const input = icon.previousElementSibling;  
-    if (input.type === "password") {  
-      input.type = "text";  
-      icon.textContent = "🙈";  
-    } else {  
-      input.type = "password";  
-      icon.textContent = "👁️";  
-    }  
-  });  
-});  
-  
-// Dummy handlers (replace with Clerk SDK calls)  
-function loginWithGoogle() {  
-  console.log("Login with Google (Clerk integration here)");  
-}  
-function loginWithOtp() {  
-  console.log("Login with Email OTP (Clerk integration here)");  
-}  
-function signupWithGoogle() {  
-  console.log("Signup with Google (Clerk integration here)");  
-}  
-function signupWithOtp() {  
-  console.log("Signup with Email OTP (Clerk integration here)");  
-}  
-  
-// Example form submission  
-document.getElementById("loginForm")?.addEventListener("submit", e => {  
-  e.preventDefault();  
-  console.log("Login form submitted");  
-  // Redirect after login success  
-  window.location.href = "dashboard.html";  
-});  
-  
-document.getElementById("signupForm")?.addEventListener("submit", e => {  
-  e.preventDefault();  
-  console.log("Signup form submitted");  
-  window.location.href = "dashboard.html";  
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2>Welcome back 👋</h2>
+      <p class="subtitle">Login to continue your learning journey</p>
+
+      <form id="loginForm" class="auth-form">
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        
+        <div class="password-wrapper">
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <span class="toggle-password">👁️</span>
+        </div>
+
+        <a href="#" class="forgot-link">Forgot password?</a>
+        <button type="submit" class="btn">Login</button>
+      </form>
+
+      <div class="divider"><span>or</span></div>
+
+      <div class="social-logins">
+        <button class="btn-outline" onclick="loginWithGoogle()">Continue with Google</button>
+        <button class="btn-outline" onclick="loginWithOtp()">Continue with Email OTP</button>
+      </div>
+
+      <p class="redirect">Don’t have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
