@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "course_id": 1,
+    "title": "HTML Basics",
+    "video_url": "https://www.youtube.com/embed/dD2EISBDjWM",
+    "notes": "Introduction to HTML tags, structure, and basic elements.",
+    "duration": "20 min"
+  },
+  {
+    "id": 2,
+    "course_id": 1,
+    "title": "CSS Fundamentals",
+    "video_url": "https://www.youtube.com/embed/yfoY53QXEnI",
+    "notes": "Learn styling, colors, margins, padding, and layout.",
+    "duration": "25 min"
+  },
+  {
+    "id": 3,
+    "course_id": 1,
+    "title": "JavaScript Basics",
+    "video_url": "https://www.youtube.com/embed/W6NZfCO5SIk",
+    "notes": "Introduction to variables, functions, and DOM manipulation.",
+    "duration": "30 min"
+  }
+]
