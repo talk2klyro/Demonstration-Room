@@ -1,0 +1,13 @@
+{
+  "modules": [
+    { "name": "Dashboard", "link": "#", "active": true },
+    { "name": "My Courses", "link": "courses.html" },
+    { "name": "Lessons", "link": "lesson.html" },
+    { "name": "Join Class", "link": "class.html" },
+    { "name": "Problem Poll", "link": "poll.html" },
+    { "name": "Blog Hub", "link": "blog.html" },
+    { "name": "Quiz & Assignment", "link": "quiz-assignment.html" },
+    { "name": "Certificates", "link": "certificate.html" },
+    { "name": "Settings", "link": "settings.html" }
+  ]
+}
