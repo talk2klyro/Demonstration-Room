@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="logo">LMS SaaS</div>
+    <input type="text" placeholder="Search quizzes..." class="search-bar">
+    <div class="profile-dropdown">
+      <span id="profileName">John Doe 👤</span>
+      <div class="dropdown-menu">
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="courses.html">My Courses</a>
+        <a href="lesson.html">Lessons</a>
+        <a href="entertainment.html">Entertainment Hub</a>
+        <a href="class.html">Join Class</a>
+        <a href="#" class="active">Quizzes</a>
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2>Quiz / Poll 📝</h2>
+      <form id="quizForm"></form>
+      <button class="btn" id="submitQuiz">Submit Quiz</button>
+      <p id="quizResult"></p>
+    </main>
+  </div>
+
+  <script src="poll.js"></script>
+</body>
+</html>
