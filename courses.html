@@ -1,0 +1,46 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Courses</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="logo">LMS SaaS</div>
+    <input type="text" placeholder="Search courses..." class="search-bar" id="searchInput">
+    <div class="profile-dropdown">
+      <span id="profileName">John Doe 👤</span>
+      <div class="dropdown-menu">
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+        <a href="index.html">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#" class="active">My Courses</a>
+        <a href="#">Join Class</a>
+        <a href="entertainment.html">Entertainment Hub</a>
+        <a href="#">Certificates</a>
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2>Available Courses 📚</h2>
+      <div class="courses-grid" id="coursesGrid">
+        <!-- Dynamic courses will be rendered here -->
+      </div>
+    </main>
+  </div>
+
+  <script src="courses.js"></script>
+</body>
+</html>
