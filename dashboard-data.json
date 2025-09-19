@@ -1,0 +1,20 @@
+{
+  "courses": [
+    { "title": "Web Development 101", "completedLessons": 3, "totalLessons": 5 },
+    { "title": "UI/UX Basics", "completedLessons": 2, "totalLessons": 4 }
+  ],
+  "nextClass": {
+    "title": "Web Development 101",
+    "date": "2025-09-20T14:00:00"
+  },
+  "certificates": [
+    { "name": "HTML Basics" },
+    { "name": "CSS Mastery" }
+  ],
+  "polls": [
+    { "title": "Favorite Framework", "responses": 120 }
+  ],
+  "quizzes": [
+    { "title": "JavaScript Quiz 1", "score": 85 }
+  ]
+}
