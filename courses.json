@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Web Development 101",
+    "tutor": "Jane Doe",
+    "price": 1000,
+    "thumbnail": "https://via.placeholder.com/300x180.png?text=Web+Dev+101",
+    "lessons": 5
+  },
+  {
+    "id": 2,
+    "title": "Python for Beginners",
+    "tutor": "John Smith",
+    "price": 1200,
+    "thumbnail": "https://via.placeholder.com/300x180.png?text=Python+101",
+    "lessons": 7
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Design Fundamentals",
+    "tutor": "Alice Brown",
+    "price": 800,
+    "thumbnail": "https://via.placeholder.com/300x180.png?text=UI+UX+Design",
+    "lessons": 6
+  }
+]
