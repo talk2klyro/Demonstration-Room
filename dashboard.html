@@ -4,142 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LMS | Dashboard</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f0f4f8;
-    }
-
-    .dashboard-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #6366f1;
-      color: white;
-      padding: 10px 20px;
-    }
-
-    .dashboard-header .logo {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    .search-bar {
-      flex: 1;
-      margin: 0 20px;
-      padding: 5px 10px;
-      border-radius: 6px;
-      border: none;
-    }
-
-    .profile-dropdown {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .profile-dropdown .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 30px;
-      right: 0;
-      background: white;
-      color: #111827;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      overflow: hidden;
-      min-width: 120px;
-    }
-
-    .profile-dropdown:hover .dropdown-menu {
-      display: block;
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 8px 12px;
-      text-decoration: none;
-      color: #111827;
-    }
-
-    .dropdown-menu a:hover {
-      background: #f3f4f6;
-    }
-
-    .dashboard-container {
-      display: flex;
-    }
-
-    .sidebar {
-      width: 220px;
-      background: #1e293b;
-      color: white;
-      min-height: calc(100vh - 50px);
-      padding-top: 20px;
-    }
-
-    .sidebar nav a {
-      display: block;
-      padding: 12px 20px;
-      color: white;
-      text-decoration: none;
-    }
-
-    .sidebar nav a.active, .sidebar nav a:hover {
-      background: #4f46e5;
-    }
-
-    .main-content {
-      flex: 1;
-      padding: 20px;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    .progress-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .progress-card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      flex: 1 1 250px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .progress-bar {
-      background: #e5e7eb;
-      border-radius: 6px;
-      overflow: hidden;
-      height: 12px;
-      margin: 10px 0;
-    }
-
-    .progress-fill {
-      background: #6366f1;
-      height: 100%;
-      width: 0%;
-    }
-
-    .btn {
-      background: #6366f1;
-      color: white;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: #4f46e5;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="dashboard-header">
@@ -148,8 +13,8 @@
     <div class="profile-dropdown">
       <span id="profileName">John Doe 👤</span>
       <div class="dropdown-menu">
-        <a href="#">Profile</a>
-        <a href="settings.html">Settings</a>
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
         <a href="index.html">Logout</a>
       </div>
     </div>
@@ -159,14 +24,12 @@
     <aside class="sidebar">
       <nav>
         <a href="#" class="active">Dashboard</a>
-        <a href="courses.html">My Courses</a>
-        <a href="lesson.html">Lessons</a>
-        <a href="class.html">Join Class</a>
-        <a href="poll.html">Problem Poll</a>
-        <a href="blog.html">Blog Hub</a>
-        <a href="quiz-assignment.html">Quiz & Assignment</a>
-        <a href="certificate.html">Certificates</a>
-        <a href="settings.html">Settings</a>
+        <a href="#">My Courses</a>
+        <a href="#">Join Class</a>
+        <a href="#">Entertainment Hub</a>
+        <a href="#">Certificates</a>
+        <a href="profile.html">Profile</a>
+        <a href="#">Settings</a>
       </nav>
     </aside>
 
@@ -200,12 +63,16 @@
 
   <script>
     function joinClass() {
-      window.open('class.html', '_blank');
+      alert("Redirecting to class…");
+      // Replace with actual link or embed
     }
 
     function viewCertificates() {
-      window.open('certificate.html', '_blank');
+      alert("Redirecting to certificates…");
     }
+
+    // Sidebar toggle for mobile (optional)
+    // Add JS here later if needed
   </script>
 </body>
 </html>
