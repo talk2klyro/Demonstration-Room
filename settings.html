@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Settings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="dashboard-header">
+  <div class="logo">LMS SaaS</div>
+  <div class="profile-dropdown">
+    <span id="profileName">John Doe 👤</span>
+    <div class="dropdown-menu">
+      <a href="profile.html">Profile</a>
+      <a href="#">Logout</a>
+    </div>
+  </div>
+</header>
+
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="courses.html">My Courses</a>
+      <a href="lesson.html">Lessons</a>
+      <a href="entertainment.html">Entertainment Hub</a>
+      <a href="class.html">Join Class</a>
+      <a href="poll.html">Problem Poll</a>
+      <a href="blog.html">Blog Hub</a>
+      <a href="quiz-assignment.html">Quiz & Assignment</a>
+      <a href="certificate.html">Certificates</a>
+      <a href="#" class="active">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <h2>Settings ⚙️</h2>
+    <p>Update your profile and manage preferences to improve your LMS experience.</p>
+
+    <form id="settingsForm">
+      <label>
+        Name:
+        <input type="text" id="name" required>
+      </label>
+
+      <label>
+        Email:
+        <input type="email" id="email" required>
+      </label>
+
+      <label>
+        Avatar:
+        <input type="file" id="avatar">
+      </label>
+
+      <label>
+        <input type="checkbox" id="notifications"> Enable notifications
+      </label>
+
+      <label>
+        <input type="checkbox" id="dark_mode"> Enable dark mode
+      </label>
+
+      <label>
+        <input type="checkbox" id="poll_anonymous"> Default to anonymous in polls
+      </label>
+
+      <button type="submit" class="btn">Save Settings</button>
+    </form>
+
+    <p class="privacy-note">
+      We respect your privacy. Your data is secure and used only for improving your learning experience.
+    </p>
+  </main>
+</div>
+
+<script src="settings.js"></script>
+</body>
+        </html>
