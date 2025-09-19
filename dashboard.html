@@ -1,145 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LMS | Dashboard</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f0f4f8;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS | Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0f4f8;
+    }
 
-  .dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #6366f1;
-    color: white;
-    padding: 10px 20px;
-  }
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #6366f1;
+      color: white;
+      padding: 10px 20px;
+    }
 
-  .dashboard-header .logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
+    .dashboard-header .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
 
-  .search-bar {
-    flex: 1;
-    margin: 0 20px;
-    padding: 5px 10px;
-    border-radius: 6px;
-    border: none;
-  }
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: none;
+    }
 
-  .profile-dropdown {
-    position: relative;
-    cursor: pointer;
-  }
+    .profile-dropdown {
+      position: relative;
+      cursor: pointer;
+    }
 
-  .profile-dropdown .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 30px;
-    right: 0;
-    background: white;
-    color: #111827;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    overflow: hidden;
-    min-width: 120px;
-  }
+    .profile-dropdown .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background: white;
+      color: #111827;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      overflow: hidden;
+      min-width: 120px;
+    }
 
-  .profile-dropdown:hover .dropdown-menu {
-    display: block;
-  }
+    .profile-dropdown:hover .dropdown-menu {
+      display: block;
+    }
 
-  .dropdown-menu a {
-    display: block;
-    padding: 8px 12px;
-    text-decoration: none;
-    color: #111827;
-  }
+    .dropdown-menu a {
+      display: block;
+      padding: 8px 12px;
+      text-decoration: none;
+      color: #111827;
+    }
 
-  .dropdown-menu a:hover {
-    background: #f3f4f6;
-  }
+    .dropdown-menu a:hover {
+      background: #f3f4f6;
+    }
 
-  .dashboard-container {
-    display: flex;
-  }
+    .dashboard-container {
+      display: flex;
+    }
 
-  .sidebar {
-    width: 220px;
-    background: #1e293b;
-    color: white;
-    min-height: calc(100vh - 50px);
-    padding-top: 20px;
-  }
+    .sidebar {
+      width: 220px;
+      background: #1e293b;
+      color: white;
+      min-height: calc(100vh - 50px);
+      padding-top: 20px;
+    }
 
-  .sidebar nav a {
-    display: block;
-    padding: 12px 20px;
-    color: white;
-    text-decoration: none;
-  }
+    .sidebar nav a {
+      display: block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+    }
 
-  .sidebar nav a.active, .sidebar nav a:hover {
-    background: #4f46e5;
-  }
+    .sidebar nav a.active, .sidebar nav a:hover {
+      background: #4f46e5;
+    }
 
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  }
+    .main-content {
+      flex: 1;
+      padding: 20px;
+    }
 
-  h2 {
-    margin-top: 0;
-  }
+    h2 {
+      margin-top: 0;
+    }
 
-  .progress-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
-  }
+    .progress-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-  .progress-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    flex: 1 1 250px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
+    .progress-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      flex: 1 1 250px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-  .progress-bar {
-    background: #e5e7eb;
-    border-radius: 6px;
-    overflow: hidden;
-    height: 12px;
-    margin: 10px 0;
-  }
+    .progress-bar {
+      background: #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 12px;
+      margin: 10px 0;
+    }
 
-  .progress-fill {
-    background: #6366f1;
-    height: 100%;
-    width: 0%;
-  }
+    .progress-fill {
+      background: #6366f1;
+      height: 100%;
+      width: 0%;
+    }
 
-  .btn {
-    background: #6366f1;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
+    .btn {
+      background: #6366f1;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
-  .btn:hover {
-    background: #4f46e5;
-  }
-</style>
+    .btn:hover {
+      background: #4f46e5;
+    }
+  </style>
 </head>
 <body>
   <header class="dashboard-header">
@@ -174,90 +174,31 @@
       <h2>Welcome Back, John! 🎓</h2>
       <p>Here’s your learning progress:</p>
 
-      <div class="progress-section" id="progressSection">
-        <!-- Dynamic cards will load here -->
+      <div class="progress-section">
+        <div class="progress-card">
+          <h3>Course Progress</h3>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%;"></div>
+          </div>
+          <p>3/5 lessons completed</p>
+        </div>
+
+        <div class="progress-card">
+          <h3>Next Class</h3>
+          <p>Web Development 101</p>
+          <button class="btn" onclick="joinClass()">Join Now</button>
+        </div>
+
+        <div class="progress-card">
+          <h3>Certificates</h3>
+          <p>2 earned</p>
+          <button class="btn" onclick="viewCertificates()">View</button>
+        </div>
       </div>
     </main>
   </div>
 
   <script>
-    const dashboardData = {
-      "courses": [
-        { "title": "Web Development 101", "completedLessons": 3, "totalLessons": 5 },
-        { "title": "UI/UX Basics", "completedLessons": 2, "totalLessons": 4 }
-      ],
-      "nextClass": { "title": "Web Development 101", "date": "2025-09-20T14:00:00" },
-      "certificates": [
-        { "name": "HTML Basics" },
-        { "name": "CSS Mastery" }
-      ],
-      "polls": [
-        { "title": "Favorite Framework", "responses": 120 }
-      ],
-      "quizzes": [
-        { "title": "JavaScript Quiz 1", "score": 85 }
-      ]
-    };
-
-    const container = document.getElementById('progressSection');
-
-    // Courses Cards
-    dashboardData.courses.forEach(course => {
-      const percent = Math.round((course.completedLessons / course.totalLessons) * 100);
-      const card = document.createElement('div');
-      card.className = 'progress-card';
-      card.innerHTML = `
-        <h3>${course.title}</h3>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: ${percent}%;"></div>
-        </div>
-        <p>${course.completedLessons}/${course.totalLessons} lessons completed</p>
-      `;
-      container.appendChild(card);
-    });
-
-    // Next Class Card
-    const nextCard = document.createElement('div');
-    nextCard.className = 'progress-card';
-    nextCard.innerHTML = `
-      <h3>Next Class</h3>
-      <p>${dashboardData.nextClass.title} <br> ${new Date(dashboardData.nextClass.date).toLocaleString()}</p>
-      <button class="btn" onclick="joinClass()">Join Now</button>
-    `;
-    container.appendChild(nextCard);
-
-    // Certificates Card
-    const certCard = document.createElement('div');
-    certCard.className = 'progress-card';
-    certCard.innerHTML = `
-      <h3>Certificates</h3>
-      <p>${dashboardData.certificates.length} earned</p>
-      <button class="btn" onclick="viewCertificates()">View</button>
-    `;
-    container.appendChild(certCard);
-
-    // Poll Cards
-    dashboardData.polls.forEach(poll => {
-      const pollCard = document.createElement('div');
-      pollCard.className = 'progress-card';
-      pollCard.innerHTML = `
-        <h3>Poll: ${poll.title}</h3>
-        <p>${poll.responses} responses</p>
-      `;
-      container.appendChild(pollCard);
-    });
-
-    // Quiz Cards
-    dashboardData.quizzes.forEach(quiz => {
-      const quizCard = document.createElement('div');
-      quizCard.className = 'progress-card';
-      quizCard.innerHTML = `
-        <h3>Quiz: ${quiz.title}</h3>
-        <p>Score: ${quiz.score}%</p>
-      `;
-      container.appendChild(quizCard);
-    });
-
     function joinClass() {
       window.open('class.html', '_blank');
     }
@@ -267,4 +208,4 @@
     }
   </script>
 </body>
-          </html>
+</html>
