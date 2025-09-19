@@ -157,8 +157,16 @@
 
   <div class="dashboard-container">
     <aside class="sidebar">
-      <nav id="sidebarNav">
-        <!-- Dynamic sidebar links will load here -->
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="courses.html">My Courses</a>
+        <a href="lesson.html">Lessons</a>
+        <a href="class.html">Join Class</a>
+        <a href="poll.html">Problem Poll</a>
+        <a href="blog.html">Blog Hub</a>
+        <a href="quiz-assignment.html">Quiz & Assignment</a>
+        <a href="certificate.html">Certificates</a>
+        <a href="settings.html">Settings</a>
       </nav>
     </aside>
 
@@ -167,94 +175,89 @@
       <p>Here’s your learning progress:</p>
 
       <div class="progress-section" id="progressSection">
-        <!-- Dynamic progress cards will load here -->
+        <!-- Dynamic cards will load here -->
       </div>
     </main>
   </div>
 
   <script>
-    // 1️⃣ Load Sidebar Dynamically
-    const sidebarNav = document.getElementById('sidebarNav');
-    fetch('sidebar-data.json')
-      .then(response => response.json())
-      .then(data => {
-        data.modules.forEach(module => {
-          const link = document.createElement('a');
-          link.href = module.link;
-          link.textContent = module.name;
-          if (module.active) link.className = 'active';
-          sidebarNav.appendChild(link);
-        });
-      })
-      .catch(err => console.error('Error loading sidebar data:', err));
+    const dashboardData = {
+      "courses": [
+        { "title": "Web Development 101", "completedLessons": 3, "totalLessons": 5 },
+        { "title": "UI/UX Basics", "completedLessons": 2, "totalLessons": 4 }
+      ],
+      "nextClass": { "title": "Web Development 101", "date": "2025-09-20T14:00:00" },
+      "certificates": [
+        { "name": "HTML Basics" },
+        { "name": "CSS Mastery" }
+      ],
+      "polls": [
+        { "title": "Favorite Framework", "responses": 120 }
+      ],
+      "quizzes": [
+        { "title": "JavaScript Quiz 1", "score": 85 }
+      ]
+    };
 
-    // 2️⃣ Load Dashboard Progress Dynamically
     const container = document.getElementById('progressSection');
-    fetch('dashboard-data.json')
-      .then(response => response.json())
-      .then(data => {
 
-        // Courses Cards
-        data.courses.forEach(course => {
-          const percent = Math.round((course.completedLessons / course.totalLessons) * 100);
-          const card = document.createElement('div');
-          card.className = 'progress-card';
-          card.innerHTML = `
-            <h3>${course.title}</h3>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: ${percent}%;"></div>
-            </div>
-            <p>${course.completedLessons}/${course.totalLessons} lessons completed</p>
-          `;
-          container.appendChild(card);
-        });
+    // Courses Cards
+    dashboardData.courses.forEach(course => {
+      const percent = Math.round((course.completedLessons / course.totalLessons) * 100);
+      const card = document.createElement('div');
+      card.className = 'progress-card';
+      card.innerHTML = `
+        <h3>${course.title}</h3>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: ${percent}%;"></div>
+        </div>
+        <p>${course.completedLessons}/${course.totalLessons} lessons completed</p>
+      `;
+      container.appendChild(card);
+    });
 
-        // Next Class Card
-        const nextCard = document.createElement('div');
-        nextCard.className = 'progress-card';
-        nextCard.innerHTML = `
-          <h3>Next Class</h3>
-          <p>${data.nextClass.title} <br> ${new Date(data.nextClass.date).toLocaleString()}</p>
-          <button class="btn" onclick="joinClass()">Join Now</button>
-        `;
-        container.appendChild(nextCard);
+    // Next Class Card
+    const nextCard = document.createElement('div');
+    nextCard.className = 'progress-card';
+    nextCard.innerHTML = `
+      <h3>Next Class</h3>
+      <p>${dashboardData.nextClass.title} <br> ${new Date(dashboardData.nextClass.date).toLocaleString()}</p>
+      <button class="btn" onclick="joinClass()">Join Now</button>
+    `;
+    container.appendChild(nextCard);
 
-        // Certificates Card
-        const certCard = document.createElement('div');
-        certCard.className = 'progress-card';
-        certCard.innerHTML = `
-          <h3>Certificates</h3>
-          <p>${data.certificates.length} earned</p>
-          <button class="btn" onclick="viewCertificates()">View</button>
-        `;
-        container.appendChild(certCard);
+    // Certificates Card
+    const certCard = document.createElement('div');
+    certCard.className = 'progress-card';
+    certCard.innerHTML = `
+      <h3>Certificates</h3>
+      <p>${dashboardData.certificates.length} earned</p>
+      <button class="btn" onclick="viewCertificates()">View</button>
+    `;
+    container.appendChild(certCard);
 
-        // Poll Cards
-        data.polls.forEach(poll => {
-          const pollCard = document.createElement('div');
-          pollCard.className = 'progress-card';
-          pollCard.innerHTML = `
-            <h3>Poll: ${poll.title}</h3>
-            <p>${poll.responses} responses</p>
-          `;
-          container.appendChild(pollCard);
-        });
+    // Poll Cards
+    dashboardData.polls.forEach(poll => {
+      const pollCard = document.createElement('div');
+      pollCard.className = 'progress-card';
+      pollCard.innerHTML = `
+        <h3>Poll: ${poll.title}</h3>
+        <p>${poll.responses} responses</p>
+      `;
+      container.appendChild(pollCard);
+    });
 
-        // Quiz Cards
-        data.quizzes.forEach(quiz => {
-          const quizCard = document.createElement('div');
-          quizCard.className = 'progress-card';
-          quizCard.innerHTML = `
-            <h3>Quiz: ${quiz.title}</h3>
-            <p>Score: ${quiz.score}%</p>
-          `;
-          container.appendChild(quizCard);
-        });
+    // Quiz Cards
+    dashboardData.quizzes.forEach(quiz => {
+      const quizCard = document.createElement('div');
+      quizCard.className = 'progress-card';
+      quizCard.innerHTML = `
+        <h3>Quiz: ${quiz.title}</h3>
+        <p>Score: ${quiz.score}%</p>
+      `;
+      container.appendChild(quizCard);
+    });
 
-      })
-      .catch(err => console.error('Error loading dashboard data:', err));
-
-    // Button Functions
     function joinClass() {
       window.open('class.html', '_blank');
     }
@@ -264,4 +267,4 @@
     }
   </script>
 </body>
-  </html>
+          </html>
